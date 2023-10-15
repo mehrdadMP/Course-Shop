@@ -7,7 +7,7 @@ class AllCoursesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: Colors.black,
       margin: EdgeInsets.all(20),
     );
   }
