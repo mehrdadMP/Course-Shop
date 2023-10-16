@@ -7,7 +7,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amber,
+      color: Colors.blue,
       margin: EdgeInsets.all(20),
     );
   }
