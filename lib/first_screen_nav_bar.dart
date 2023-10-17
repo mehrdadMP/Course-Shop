@@ -1,6 +1,7 @@
 import 'package:course_shop/all_courses_screen.dart';
 import 'package:course_shop/cart_screen.dart';
 import 'package:course_shop/main_screen.dart';
+import 'package:course_shop/my_app_texts.dart';
 import 'package:course_shop/my_courses_screen.dart';
 import 'package:course_shop/profile_settings_screen.dart';
 import 'package:course_shop/settings_screen.dart';
@@ -65,37 +66,37 @@ class FirstScreenNavBar extends StatelessWidget {
     return [
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.home),
-        title: ("خانه"),
+        title: MyAppTexts.home,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.book),
-        title: ("دروس من"),
+        title: MyAppTexts.myCourses,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.book_solid),
-        title: ("همه\u200cی دروس"),
+        title: MyAppTexts.allCourses,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.person),
-        title: ("پروفایل"),
+        title: MyAppTexts.profile,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.cart),
-        title: ("سبد خرید"),
+        title:MyAppTexts.cart,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.settings),
-        title: ("تنظیمات"),
+        title: MyAppTexts.cart,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyAppDivider extends StatelessWidget {
-  final mainPadding;
+  final EdgeInsetsGeometry mainPadding;
   const MyAppDivider({
     super.key,
     required this.mainPadding,

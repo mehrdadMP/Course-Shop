@@ -1,3 +1,4 @@
+import 'package:course_shop/reusable_widgets/my_app_bouncing_scroll_physics.dart';
 import 'package:course_shop/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +12,18 @@ class My_App_Vertical_ListView extends StatelessWidget {
   final double? hight;
   final double? itemsHight;
 
+  ///This widget creates a list containing a number of items.
+  ///Each item contains a photo and 3 rows [row1Children],[row2Children],[row3Children] in front of the photo,
+  ///where several widgets can be defined within each row.
+
   const My_App_Vertical_ListView({
     super.key,
     required this.contextSize,
-    required this.textStyle, 
-    required this.row1Children, 
-    required this.row2Children, 
-    required this.row3Children, 
-    required this.hight, 
+    required this.textStyle,
+    required this.row1Children,
+    required this.row2Children,
+    required this.row3Children,
+    required this.hight,
     required this.itemsHight,
   });
 
@@ -35,8 +40,7 @@ class My_App_Vertical_ListView extends StatelessWidget {
                   ScrollConfiguration.of(context).copyWith(scrollbars: false),
               child: ListView.builder(
                 shrinkWrap: true,
-                physics: BouncingScrollPhysics(
-                    decelerationRate: ScrollDecelerationRate.fast),
+                physics: MyAppBouncingScrollPhysics(),
                 itemCount: 40,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
@@ -49,49 +53,52 @@ class My_App_Vertical_ListView extends StatelessWidget {
                     alignment: Alignment.center,
                     padding: EdgeInsets.all(6),
                     margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
-                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 7, 7, 7),
-            width: contextSize.width - 340,
-            decoration: BoxDecoration(
-              color: CourseAppTheme.appSecondaryColor,
-              borderRadius: BorderRadius.circular(11),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 5, 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(7.0),
                     child: Row(
-                      children: row1Children,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(7.0),
-                    child: Row(
-                      children: row2Children,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(7.0),
-                    child: Row(
-                      children: row3Children,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Icon(
-            CupertinoIcons.arrow_turn_down_left,
-            size: 23,
-          )
-        ]),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.fromLTRB(0, 7, 7, 7),
+                            width: contextSize.width - 340,
+                            decoration: BoxDecoration(
+                              color: CourseAppTheme.appSecondaryColor,
+                              borderRadius: BorderRadius.circular(11),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 10, 5, 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(7.0),
+                                    child: Row(
+                                      children: row1Children,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(7.0),
+                                    child: Row(
+                                      children: row2Children,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(7.0),
+                                    child: Row(
+                                      children: row3Children,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Icon(
+                            CupertinoIcons.arrow_turn_down_left,
+                            size: 23,
+                          )
+                        ]),
                   );
                 },
               ),

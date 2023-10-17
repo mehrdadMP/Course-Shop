@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:course_shop/reusable_widgets/my_app_divider.dart';
+import 'package:course_shop/reusable_widgets/my_app_bouncing_scroll_physics.dart';
+
 import 'package:course_shop/reusable_widgets/my_app_show_dialog.dart';
 import 'package:course_shop/reusable_widgets/my_app_textfield.dart';
 import 'package:course_shop/reusable_widgets/my_app_vertical_listview.dart';
@@ -29,7 +31,7 @@ class MainScreen extends StatelessWidget {
         body: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: MyAppBouncingScrollPhysics(),
             child: Column(children: [
               _FirstRow(textStyle: textStyle, mainPadding: mainPadding),
               MyAppDivider(mainPadding: mainPadding),
@@ -309,7 +311,7 @@ class _ThirdRow extends StatelessWidget {
             child: SizedBox(
               height: 55,
               child: ListView.builder(
-                physics: BouncingScrollPhysics(),
+                physics: MyAppBouncingScrollPhysics(),
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
