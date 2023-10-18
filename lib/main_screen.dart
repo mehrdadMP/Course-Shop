@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:course_shop/my_app_texts.dart';
 import 'package:course_shop/reusable_widgets/my_app_divider.dart';
 import 'package:course_shop/reusable_widgets/my_app_bouncing_scroll_physics.dart';
-
 import 'package:course_shop/reusable_widgets/my_app_show_dialog.dart';
 import 'package:course_shop/reusable_widgets/my_app_textfield.dart';
 import 'package:course_shop/reusable_widgets/my_app_vertical_listview.dart';
@@ -9,7 +9,6 @@ import 'package:course_shop/theme.dart';
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dialogs/flutter_dialogs.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -20,11 +19,11 @@ class MainScreen extends StatelessWidget {
     const mainPadding = EdgeInsets.fromLTRB(25, 0, 25, 0);
     final contextSize = MediaQuery.sizeOf(context);
     final List<String> coursesCategories = <String>[
-      'همه\u200cی دروس',
-      'طراحی',
-      'برنامه نویسی',
-      'مهارت آموزی',
-      'نرم افزار 3DSMax',
+      MyAppTexts.allCourses,
+      MyAppTexts.design,
+      MyAppTexts.programming,
+      MyAppTexts.skillLearning,
+      MyAppTexts.DMaxLearning,
     ];
     return SafeArea(
       child: Scaffold(
@@ -74,7 +73,7 @@ class _SixthRow extends StatelessWidget {
         hight: contextSize.height - 550,
         row1Children: [
           Text(
-            'نام درس',
+            MyAppTexts.courseName,
             style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
           ),
         ],
@@ -92,10 +91,10 @@ class _SixthRow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'نام مدرس',
+                  MyAppTexts.teacherName,
                   style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
                 ),
-                Text('100 تومان',
+                Text(MyAppTexts.coursePrice,
                     style: textStyle.bodySmall
                         ?.copyWith(color: CourseAppTheme.appFifthColor)),
               ],
@@ -106,7 +105,7 @@ class _SixthRow extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
             child: Text(
-              'طول دوره(ساعت)',
+              MyAppTexts.courseLength,
               style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
             ),
           ),
@@ -118,7 +117,7 @@ class _SixthRow extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
             child: Text(
-              'تعداد جلسات دوره',
+              MyAppTexts.courseSessionsNumber,
               style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
             ),
           ),
@@ -143,11 +142,11 @@ class _FifthRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'پربازدیدترین دروس',
+            MyAppTexts.popularCourses,
             style: textStyle.titleMedium
                 ?.copyWith(fontSize: 17, fontWeight: FontWeight.w800),
           ),
-          Text('نمایش همه',
+          Text(MyAppTexts.seeAll,
               style: textStyle.titleMedium?.copyWith(
                   color: CourseAppTheme.appsixthColor, fontSize: 13)),
         ],
@@ -217,10 +216,10 @@ class _FourthRow extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Text>[
                             Text(
-                              'نام درس',
+                              MyAppTexts.courseName,
                               style: textStyle.bodySmall,
                             ),
-                            Text('100 تومان',
+                            Text(MyAppTexts.coursePrice,
                                 style: textStyle.bodySmall?.copyWith(
                                     color: CourseAppTheme.appFifthColor)),
                           ],
@@ -241,7 +240,7 @@ class _FourthRow extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                               child: Text(
-                                'نام مدرس',
+                                MyAppTexts.teacherName,
                                 style: textStyle.bodySmall,
                               ),
                             ),
@@ -255,7 +254,7 @@ class _FourthRow extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
                               child: Text(
-                                'طول دوره(ساعت)',
+                                MyAppTexts.courseLength,
                                 style: textStyle.bodySmall,
                               ),
                             ),
@@ -267,7 +266,7 @@ class _FourthRow extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                               child: Text(
-                                'تعداد جلسات دوره',
+                                MyAppTexts.courseSessionsNumber,
                                 style: textStyle.bodySmall,
                               ),
                             ),
@@ -358,7 +357,7 @@ class _SecondRow extends StatelessWidget {
         children: [
           MyAppTextField(
             textStyle: textStyle,
-            labelText: 'جستجوی درس',
+            labelText: MyAppTexts.searchCourse,
             iconData: CupertinoIcons.search,
           ),
           SizedBox(
@@ -405,12 +404,12 @@ class _FirstRow extends StatelessWidget {
             initialValue: 2,
             children: {
               1: Text(
-                'ثبت نام',
+                MyAppTexts.signUp,
                 style: textStyle.labelLarge?.copyWith(
                     fontWeight: FontWeight.bold, color: Colors.white),
               ),
               2: Text(
-                'ورود',
+                MyAppTexts.signIn,
                 style: textStyle.labelLarge?.copyWith(
                     fontWeight: FontWeight.w900, color: Colors.white),
               ),
@@ -422,14 +421,14 @@ class _FirstRow extends StatelessWidget {
                       builder: (context) => MyAppShowDialog(
                             textStyle: textStyle,
                             mainPadding: mainPadding,
-                            dialogLabel: 'ایجاد حساب',
+                            dialogLabel: MyAppTexts.signUpLabel,
                             textFieldCount: 5,
                             labelTexts: [
-                              'نام و نام خانوادگی',
-                              'ایمیل',
-                              'شماره موبایل',
-                              'رمز عبور',
-                              'تکرار رمز عبور'
+                              MyAppTexts.signUpFirstLastName,
+                              MyAppTexts.signUpEmail,
+                              MyAppTexts.signUpPhoneNumber,
+                              MyAppTexts.signUpPassword,
+                              MyAppTexts.signUpRePassword
                             ],
                             iconsData: [
                               CupertinoIcons.person,
@@ -444,9 +443,9 @@ class _FirstRow extends StatelessWidget {
                       builder: (context) => MyAppShowDialog(
                         textStyle: textStyle,
                         mainPadding: mainPadding,
-                        dialogLabel: 'ورود به نرم افزار',
+                        dialogLabel: MyAppTexts.signInLabel,
                         textFieldCount: 2,
-                        labelTexts: ['ایمیل', 'رمز عبور'],
+                        labelTexts: [MyAppTexts.signInEmail, MyAppTexts.signInPassword],
                         iconsData: [CupertinoIcons.at, CupertinoIcons.lock],
                       ),
                     );

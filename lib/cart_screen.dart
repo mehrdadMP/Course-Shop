@@ -1,3 +1,4 @@
+import 'package:course_shop/my_app_texts.dart';
 import 'package:course_shop/reusable_widgets/my_app_divider.dart';
 import 'package:course_shop/reusable_widgets/my_app_icon_button.dart';
 import 'package:course_shop/reusable_widgets/my_app_vertical_listview.dart';
@@ -12,7 +13,8 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
     final contextSize = MediaQuery.sizeOf(context);
-    return Container(padding: EdgeInsets.all(1),
+    return Container(
+      padding: EdgeInsets.all(1),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           border: Border.all(width: 0.2)),
@@ -39,14 +41,18 @@ class _ForthRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: 56,
+    return SizedBox(
+      height: 56,
       width: contextSize.width,
       child: ElevatedButton(
-          style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(CourseAppTheme.appButtonsColor),
+          style: ButtonStyle(
+              backgroundColor:
+                  MaterialStatePropertyAll(CourseAppTheme.appButtonsColor),
               shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)))),
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)))),
           onPressed: () {},
-          child: Text('پرداخت',style: textStyle.labelMedium)),
+          child: Text(MyAppTexts.pay, style: textStyle.labelMedium)),
     );
   }
 }
@@ -95,7 +101,7 @@ class _FirstRow extends StatelessWidget {
           MyAppIconButton(
               iconData: CupertinoIcons.text_justifyleft, onTap: () {}),
           Text(
-            'سبد خرید',
+            MyAppTexts.paymentCart,
             style: textStyle.titleLarge,
           ),
           MyAppIconButton(iconData: CupertinoIcons.search, onTap: () {})

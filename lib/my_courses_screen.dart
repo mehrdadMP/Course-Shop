@@ -1,3 +1,4 @@
+import 'package:course_shop/my_app_texts.dart';
 import 'package:course_shop/reusable_widgets/my_app_icon_button.dart';
 import 'package:course_shop/reusable_widgets/my_app_vertical_listview.dart';
 import 'package:flutter/cupertino.dart';
@@ -51,7 +52,7 @@ class _SecondRow extends StatelessWidget {
         hight: contextSize.height - 160,
         row1Children: [
           Text(
-            'نام درس',
+            MyAppTexts.courseName,
             style: textStyle.bodySmall?.copyWith(fontSize: 12),
           )
         ],
@@ -69,7 +70,7 @@ class _SecondRow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'نام مدرس',
+                  MyAppTexts.teacherName,
                   style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
                 ),
               ],
@@ -112,14 +113,14 @@ class _FirstRow extends StatelessWidget {
         Column(
           children: [
             Text(
-              'دروس من',
+              MyAppTexts.myCourses,
               style: textStyle.titleLarge,
             ),
             SizedBox(
               height: 5,
             ),
             Text(
-              'تعداد دروس : 0',
+              MyAppTexts.myCoursesNumber,
               style: textStyle.bodySmall?.copyWith(
                   color: CourseAppTheme.appFifthColor,
                   fontWeight: FontWeight.w500,
