@@ -14,17 +14,21 @@ class MyCoursesScreen extends StatelessWidget {
     final contextSize = MediaQuery.sizeOf(context);
     final mainPadding = CourseAppTheme.mainPadding;
     final textStyle = Theme.of(context).textTheme;
-    return Padding(
-      padding: mainPadding.copyWith(top: 35),
-      child: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-        child: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
-          child: Column(
-            children: [
-              _FirstRow(textStyle: textStyle),
-              _SecondRow(contextSize: contextSize, textStyle: textStyle)
-            ],
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: mainPadding.copyWith(top: 15),
+          child: ScrollConfiguration(
+            behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: SingleChildScrollView(
+              physics: NeverScrollableScrollPhysics(),
+              child: Column(
+                children: [
+                  _FirstRow(textStyle: textStyle),
+                  _SecondRow(contextSize: contextSize, textStyle: textStyle)
+                ],
+              ),
+            ),
           ),
         ),
       ),

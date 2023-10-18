@@ -1,6 +1,7 @@
 import 'package:course_shop/my_app_texts.dart';
 import 'package:course_shop/reusable_widgets/my_app_divider.dart';
 import 'package:course_shop/reusable_widgets/my_app_icon_button.dart';
+import 'package:course_shop/reusable_widgets/my_app_show_dialog.dart';
 import 'package:course_shop/reusable_widgets/my_app_vertical_listview.dart';
 import 'package:course_shop/theme.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,27 +14,39 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
     final contextSize = MediaQuery.sizeOf(context);
-    return Container(
-      padding: EdgeInsets.all(1),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          border: Border.all(width: 0.2)),
-      margin: EdgeInsets.fromLTRB(20, 20, 20, 35),
-      child: Column(children: [
-        _FirstRow(textStyle: textStyle),
-        MyAppDivider(mainPadding: EdgeInsets.fromLTRB(10, 7, 10, 7)),
-        _SecondRow(contextSize: contextSize, textStyle: textStyle),
-        _ThirdRow(contextSize: contextSize, textStyle: textStyle),
-      ]),
+    const mainPadding = EdgeInsets.fromLTRB(25, 0, 25, 0);
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(1),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              border: Border.all(width: 0.2)),
+          margin: EdgeInsets.fromLTRB(20, 20, 20, 35),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _FirstRow(textStyle: textStyle),
+                MyAppDivider(mainPadding: EdgeInsets.fromLTRB(10, 7, 10, 7)),
+                _SecondRow(contextSize: contextSize, textStyle: textStyle),
+                _ThirdRow(
+                    mainPadding: mainPadding,
+                    contextSize: contextSize,
+                    textStyle: textStyle),
+              ]),
+        ),
+      ),
     );
   }
 }
 
 class _ThirdRow extends StatelessWidget {
+  final EdgeInsets mainPadding;
   const _ThirdRow({
     super.key,
     required this.contextSize,
     required this.textStyle,
+    required this.mainPadding,
   });
 
   final Size contextSize;
@@ -51,7 +64,22 @@ class _ThirdRow extends StatelessWidget {
               shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5)))),
-          onPressed: () {},
+          onPressed: () {
+            showCupertinoDialog(
+              context: context,
+              builder: (context) => MyAppShowDialog(
+                  textStyle: textStyle,
+                  mainPadding: mainPadding,
+                  dialogLabel: MyAppTexts.chooseBankPortal,
+                  textFieldCount: 0,
+                  labelTexts: [
+         
+                  ],
+                  iconsData: [
+                
+                  ]),
+            );
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -71,7 +99,8 @@ class _ThirdRow extends StatelessWidget {
                     Text(
                       MyAppTexts.amountPrice[1],
                       style: textStyle.labelLarge?.copyWith(
-                          color: CourseAppTheme.appButtonsTextSecondaryColor,fontWeight: FontWeight.w900),
+                          color: CourseAppTheme.appButtonsTextSecondaryColor,
+                          fontWeight: FontWeight.w900),
                     )
                   ],
                 ),
@@ -99,7 +128,7 @@ class _SecondRow extends StatelessWidget {
       child: My_App_Vertical_ListView(
         contextSize: contextSize,
         textStyle: textStyle,
-        hight: contextSize.height - 260,
+        hight: contextSize.height - 300,
         itemsHight: 125,
         setDividerBetweenItems: true,
         setBorder: false,
@@ -137,7 +166,9 @@ class _SecondRow extends StatelessWidget {
               children: [
                 Text(MyAppTexts.coursePrice,
                     style: textStyle.bodySmall?.copyWith(
-                        color: CourseAppTheme.appFifthColor, fontSize: 15,fontWeight: FontWeight.w800)),
+                        color: CourseAppTheme.appFifthColor,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800)),
               ],
             ),
           ),

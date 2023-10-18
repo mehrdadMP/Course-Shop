@@ -40,4 +40,5 @@ class MyAppTexts {
   static String pay = ('پرداخت');
   static String paymentCart = ('سبد خرید');
   static List<String> amountPrice = [('جمع  مبالغ'),('100 تومان')];
+  static String chooseBankPortal = 'انتخاب درگاه بانک';
 }
