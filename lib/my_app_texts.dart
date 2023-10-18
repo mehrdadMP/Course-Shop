@@ -39,4 +39,5 @@ class MyAppTexts {
   //cart_screen.dart file texts
   static String pay = ('پرداخت');
   static String paymentCart = ('سبد خرید');
+  static List<String> amountPrice = [('جمع  مبالغ'),('100 تومان')];
 }

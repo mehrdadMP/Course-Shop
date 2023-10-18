@@ -5,10 +5,13 @@ import 'package:flutter/material.dart';
 class MyAppIconButton extends StatelessWidget {
   final IconData iconData;
   final Function()? onTap;
+  final bool setBorder;
 
   const MyAppIconButton({
     required this.iconData,
-    super.key, required this.onTap,
+    super.key,
+    required this.onTap,
+    required this.setBorder,
   });
 
   @override
@@ -17,7 +20,9 @@ class MyAppIconButton extends StatelessWidget {
       type: MaterialType.transparency,
       child: Ink(
         decoration: BoxDecoration(
-          border: Border.all(width: 0.5, color: CourseAppTheme.appBorderColor),
+          border: setBorder == true
+              ? Border.all(width: 0.5, color: CourseAppTheme.appBorderColor)
+              : null,
           color: CourseAppTheme.appThirdColor,
           borderRadius: BorderRadius.circular(100),
         ),

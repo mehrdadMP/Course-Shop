@@ -23,14 +23,14 @@ class CartScreen extends StatelessWidget {
         _FirstRow(textStyle: textStyle),
         MyAppDivider(mainPadding: EdgeInsets.fromLTRB(10, 7, 10, 7)),
         _SecondRow(contextSize: contextSize, textStyle: textStyle),
-        _ForthRow(contextSize: contextSize, textStyle: textStyle),
+        _ThirdRow(contextSize: contextSize, textStyle: textStyle),
       ]),
     );
   }
 }
 
-class _ForthRow extends StatelessWidget {
-  const _ForthRow({
+class _ThirdRow extends StatelessWidget {
+  const _ThirdRow({
     super.key,
     required this.contextSize,
     required this.textStyle,
@@ -42,7 +42,7 @@ class _ForthRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 56,
+      height: 66,
       width: contextSize.width,
       child: ElevatedButton(
           style: ButtonStyle(
@@ -52,7 +52,32 @@ class _ForthRow extends StatelessWidget {
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5)))),
           onPressed: () {},
-          child: Text(MyAppTexts.pay, style: textStyle.labelMedium)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(MyAppTexts.pay,
+                  style: textStyle.labelLarge
+                      ?.copyWith(fontSize: 20, fontWeight: FontWeight.w800)),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      MyAppTexts.amountPrice[0],
+                      style: textStyle.labelLarge
+                          ?.copyWith(color: CourseAppTheme.appButtonsTextColor),
+                    ),
+                    Text(
+                      MyAppTexts.amountPrice[1],
+                      style: textStyle.labelLarge?.copyWith(
+                          color: CourseAppTheme.appButtonsTextSecondaryColor,fontWeight: FontWeight.w900),
+                    )
+                  ],
+                ),
+              )
+            ],
+          )),
     );
   }
 }
@@ -72,13 +97,73 @@ class _SecondRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
       child: My_App_Vertical_ListView(
-          contextSize: contextSize,
-          textStyle: textStyle,
-          row1Children: [],
-          row2Children: [],
-          row3Children: [],
-          hight: contextSize.height - 250,
-          itemsHight: 100),
+        contextSize: contextSize,
+        textStyle: textStyle,
+        hight: contextSize.height - 260,
+        itemsHight: 125,
+        setDividerBetweenItems: true,
+        setBorder: false,
+        setLeftArrowButton: false,
+        row1Children: [
+          Text(
+            MyAppTexts.courseName,
+            style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+          ),
+        ],
+        row2Children: [
+          Row(
+            children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    width: 20,
+                    height: 20,
+                    child:
+                        Image.asset('assets/images/blank-profile-picture.png'),
+                  )),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                child: Text(
+                  MyAppTexts.teacherName,
+                  style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+                ),
+              )
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(MyAppTexts.coursePrice,
+                    style: textStyle.bodySmall?.copyWith(
+                        color: CourseAppTheme.appFifthColor, fontSize: 15,fontWeight: FontWeight.w800)),
+              ],
+            ),
+          ),
+        ],
+        row3Children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+            child: Text(
+              MyAppTexts.courseLength,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ),
+          ),
+          Icon(
+            CupertinoIcons.circle_fill,
+            color: CourseAppTheme.appFifthColor,
+            size: 6,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+            child: Text(
+              MyAppTexts.courseSessionsNumber,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -99,12 +184,19 @@ class _FirstRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           MyAppIconButton(
-              iconData: CupertinoIcons.text_justifyleft, onTap: () {}),
+            iconData: CupertinoIcons.text_justifyleft,
+            onTap: () {},
+            setBorder: false,
+          ),
           Text(
             MyAppTexts.paymentCart,
             style: textStyle.titleLarge,
           ),
-          MyAppIconButton(iconData: CupertinoIcons.search, onTap: () {})
+          MyAppIconButton(
+            iconData: CupertinoIcons.search,
+            onTap: () {},
+            setBorder: false,
+          )
         ],
       ),
     );

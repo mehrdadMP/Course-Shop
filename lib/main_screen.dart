@@ -71,6 +71,10 @@ class _SixthRow extends StatelessWidget {
         contextSize: contextSize,
         textStyle: textStyle,
         hight: contextSize.height - 550,
+        itemsHight: 126,
+        setDividerBetweenItems: true,
+        setBorder: true,
+        setLeftArrowButton: true,
         row1Children: [
           Text(
             MyAppTexts.courseName,
@@ -78,25 +82,33 @@ class _SixthRow extends StatelessWidget {
           ),
         ],
         row2Children: [
-          ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: SizedBox(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/images/blank-profile-picture.png'),
-              )),
+          Row(
+            children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    width: 20,
+                    height: 20,
+                    child:
+                        Image.asset('assets/images/blank-profile-picture.png'),
+                  )),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                child: Text(
+                  MyAppTexts.teacherName,
+                  style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+                ),
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  MyAppTexts.teacherName,
-                  style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-                ),
                 Text(MyAppTexts.coursePrice,
                     style: textStyle.bodySmall
-                        ?.copyWith(color: CourseAppTheme.appFifthColor)),
+                        ?.copyWith(color: CourseAppTheme.appFifthColor,fontSize: 15)),
               ],
             ),
           ),
@@ -122,7 +134,6 @@ class _SixthRow extends StatelessWidget {
             ),
           ),
         ],
-        itemsHight: 126,
       ),
     );
   }
@@ -445,7 +456,10 @@ class _FirstRow extends StatelessWidget {
                         mainPadding: mainPadding,
                         dialogLabel: MyAppTexts.signInLabel,
                         textFieldCount: 2,
-                        labelTexts: [MyAppTexts.signInEmail, MyAppTexts.signInPassword],
+                        labelTexts: [
+                          MyAppTexts.signInEmail,
+                          MyAppTexts.signInPassword
+                        ],
                         iconsData: [CupertinoIcons.at, CupertinoIcons.lock],
                       ),
                     );

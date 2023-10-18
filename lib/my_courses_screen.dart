@@ -50,6 +50,9 @@ class _SecondRow extends StatelessWidget {
         contextSize: contextSize,
         textStyle: textStyle,
         hight: contextSize.height - 160,
+        setDividerBetweenItems: true,
+        setBorder: true,
+        setLeftArrowButton: true,
         row1Children: [
           Text(
             MyAppTexts.courseName,
@@ -57,23 +60,30 @@ class _SecondRow extends StatelessWidget {
           )
         ],
         row2Children: [
-          ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: SizedBox(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/images/blank-profile-picture.png'),
-              )),
+          Row(
+            children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    width: 20,
+                    height: 20,
+                    child:
+                        Image.asset('assets/images/blank-profile-picture.png'),
+                  )),
+              Padding(
+                padding:  const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                child: Text(
+                  MyAppTexts.teacherName,
+                  style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+                ),
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  MyAppTexts.teacherName,
-                  style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-                ),
-              ],
+              children: [],
             ),
           )
         ],
@@ -87,7 +97,8 @@ class _SecondRow extends StatelessWidget {
             barRadius: Radius.circular(5),
             isRTL: true,
           )
-        ], itemsHight: 130,
+        ],
+        itemsHight: 130,
       ),
     );
   }
@@ -109,6 +120,7 @@ class _FirstRow extends StatelessWidget {
         MyAppIconButton(
           iconData: CupertinoIcons.search,
           onTap: () {},
+          setBorder: true,
         ),
         Column(
           children: [
@@ -131,6 +143,7 @@ class _FirstRow extends StatelessWidget {
         MyAppIconButton(
           iconData: CupertinoIcons.square_arrow_left,
           onTap: () {},
+          setBorder: true,
         )
       ],
     );

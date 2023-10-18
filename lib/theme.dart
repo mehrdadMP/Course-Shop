@@ -11,13 +11,19 @@ class CourseAppTheme {
   static final Color appBorderColor = const Color.fromARGB(115, 63, 61, 61);
   static final Color appButtonsColor = Color.fromARGB(115, 133, 241, 182);
   static final Color appButtonsTextColor = Colors.black;
+  static final Color appButtonsTextSecondaryColor =
+      Color.fromARGB(255, 88, 52, 219);
   static final mainPadding = EdgeInsets.fromLTRB(25, 0, 25, 0);
 
   CourseAppTheme();
 
   static ThemeData appTheme() {
     return ThemeData(
-      textTheme: TextTheme(headlineSmall: TextStyle(fontFamily: defaultFont, fontWeight: FontWeight.w600),
+      textTheme: TextTheme(
+        headlineSmall:
+            TextStyle(fontFamily: defaultFont, fontWeight: FontWeight.w600),
+        titleMedium:
+            TextStyle(fontFamily: defaultFont, fontWeight: FontWeight.w700),
         titleLarge:
             TextStyle(fontFamily: defaultFont, fontWeight: FontWeight.w700),
         labelLarge:
