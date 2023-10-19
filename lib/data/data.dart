@@ -1,26 +1,19 @@
-/* class Courses {
+class Course {
   final String courseName;
   final String coursePrice;
   final String teacherName;
   final String courseLength;
-  final String courseSessionNumber;
+  final int courseSessionNumber;
+  final String coursePhoto;
 
-  Courses({
+  Course({
     required this.courseName,
     required this.coursePrice,
     required this.teacherName,
     required this.courseLength,
     required this.courseSessionNumber,
+    required this.coursePhoto,
   });
-}
-
-class AllCourses {
-  final int id;
-  final String title;
-  final String imageFileName;
-
-  AllCourses(
-      {required this.id, required this.title, required this.imageFileName});
 }
 
 class Post {
@@ -43,152 +36,279 @@ class Post {
 }
 
 class AppData {
-  static List<Courses> get stories {
+  static List<Course> get allCourses {
     return [
-      Courses(
-        id: 101,
-        name: 'Mehrdad',
-        imageFileName: 'Profile-(9).jpg',
-        iconFileName: 'video-camera.png',
-        isViewed: true,
+      Course(
+        courseName: 'آموزش رایگان پایتون',
+        coursePrice: 'رایگان',
+        teacherName: 'پژمان اقبالی',
+        courseLength: '۱۴۰ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/python.jpg',
       ),
-      Courses(
-        id: 102,
-        name: 'Sara',
-        imageFileName: 'Profile-(1).jpg',
-        iconFileName: 'video-camera.png',
-        isViewed: false,
+      Course(
+        courseName: 'آموزش وردپرس WordPress مقدماتی',
+        coursePrice: '۳۳۹۰۰۰ تومان',
+        teacherName: 'رضا هاشمیان',
+        courseLength: '۱۱ ساعت و ۵۶ دقیقه',
+        courseSessionNumber: 56,
+        coursePhoto: 'assets/images/courses/wordPress.jpg',
       ),
-      Courses(
-        id: 103,
-        name: 'Farhad',
-        imageFileName: 'Profile-(5).jpg',
-        iconFileName: 'video-camera.png',
-        isViewed: true,
+      Course(
+        courseName: 'آموزش ریاضی عمومی ۱',
+        coursePrice: '۳۸۹۰۰۰ تومان',
+        teacherName: 'فرشید شیرافکن',
+        courseLength: '۳۰ ساعت و ۵۰ دقیقه',
+        courseSessionNumber: 70,
+        coursePhoto: 'assets/images/courses/math.jpg',
       ),
-      Courses(
-        id: 104,
-        name: 'Sasan',
-        imageFileName: 'Profile-(10).jpg',
-        iconFileName: 'video-camera.png',
-        isViewed: false,
+      Course(
+        courseName: 'آموزش رایگان ابزار git',
+        coursePrice: 'رایگان',
+        teacherName: 'جادی میرمیرانی',
+        courseLength: '۱ ساعت و ۳۹ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/git.jpg',
       ),
-      Courses(
-        id: 105,
-        name: 'Samira',
-        imageFileName: 'Profile-(2).jpg',
-        iconFileName: 'video-camera.png',
-        isViewed: false,
+      Course(
+        courseName: 'آموزش رایگان illustrator',
+        coursePrice: 'رایگان',
+        teacherName: 'مهدی اشرفی',
+        courseLength: '۲ ساعت و ۹ دقیقه',
+        courseSessionNumber: 3,
+        coursePhoto: 'assets/images/courses/illustrator.jpg',
       ),
-      Courses(
-        id: 106,
-        name: 'Sina',
-        imageFileName: 'Profile-(11).jpg',
-        iconFileName: 'video-camera.png',
-        isViewed: false,
+      Course(
+        courseName: 'آموزش Excel 2021',
+        coursePrice: '۳۵۹۰۰۰',
+        teacherName: 'آزاده سهرابی نژاد',
+        courseLength: '۹ ساعت و ۱۱ دقیقه',
+        courseSessionNumber: 43,
+        coursePhoto: 'assets/images/courses/excel.jpg',
       ),
-      Courses(
-        id: 107,
-        name: 'Kimia',
-        imageFileName: 'Profile-(3).jpg',
-        iconFileName: 'video-camera.png',
-        isViewed: false,
+      Course(
+        courseName: 'آموزش رایگان برنامه نویسی c++',
+        coursePrice: 'رایگان',
+        teacherName: 'فرشید شیرافکن',
+        courseLength: '۲ ساعت و ۳۹ دقیقه',
+        courseSessionNumber: 2,
+        coursePhoto: 'assets/images/courses/c++.jpg',
+      ),
+      Course(
+        courseName: 'آموزش رایگان Power BI',
+        coursePrice: 'رایگان',
+        teacherName: 'عباس فرمانی',
+        courseLength: '۱ ساعت و ۱۸ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/powerBI.jpg',
+      ),
+      Course(
+        courseName: 'آموزش رایگان AutoCAD 2023',
+        coursePrice: 'رایگان',
+        teacherName: 'هاشم بهمن‌یار',
+        courseLength: '۲ ساعت و ۳۹ دقیقه',
+        courseSessionNumber: 3,
+        coursePhoto: 'assets/images/courses/AutoCAD.jpg',
+      ),
+      Course(
+        courseName: 'آموزش نصب ویندوز ۱۱',
+        coursePrice: 'رایگان',
+        teacherName: 'رضا هاشمیان',
+        courseLength: '۱۳ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/windows11.jpg',
+      ),
+      Course(
+        courseName: 'آموزش Microsoft Project',
+        coursePrice: '۴۴۹۰۰۰ تومان',
+        teacherName: 'مصعود امینی',
+        courseLength: '۵ ساعت و ۳۳ دقیقه',
+        courseSessionNumber: 5,
+        coursePhoto: 'assets/images/courses/',
+      ),
+      Course(
+        courseName: 'آموزش رایگان نتوورک‌ پلاس',
+        coursePrice: 'رایگان',
+        teacherName: 'منوچهر بابایی',
+        courseLength: '۱ ساعت و ۳۵ دقیقه',
+        courseSessionNumber: 2,
+        coursePhoto: 'assets/images/courses/network+.jpg',
+      ),
+      Course(
+        courseName: 'آموزش Premier',
+        coursePrice: '۴۴۹۰۰۰ تومان',
+        teacherName: 'علی خسروی',
+        courseLength: '۸ ساعت و ۴۹ دقیقه',
+        courseSessionNumber: 6,
+        coursePhoto: 'assets/images/courses/premiere.jpg',
+      ),
+      Course(
+        courseName: 'آموزش مقدماتی Photoshop',
+        coursePrice: '۲۹۵۰۰۰ تومان',
+        teacherName: 'مهدی اشرفی',
+        courseLength: '۷ ساعت و ۵۲ دقیقه',
+        courseSessionNumber: 5,
+        coursePhoto: 'assets/images/courses/',
+      ),
+      Course(
+        courseName: 'آموزش رایگان CorelDraw',
+        coursePrice: 'رایگان',
+        teacherName: 'مهدی اشرفی',
+        courseLength: '۲ ساعت و ۱ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/corelDraw.jpg',
       ),
     ];
   }
 
-  static List<AllCourses> get categories {
+  static List<Course> get popularCourses {
     return [
-      AllCourses(
-        id: 1001,
-        title: 'Technology',
-        imageFileName: 'Technology.jpg',
+      Course(
+        courseName: 'آموزش نصب ویندوز ۱۱',
+        coursePrice: 'رایگان',
+        teacherName: 'رضا هاشمیان',
+        courseLength: '۱۳ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/windows11.jpg',
       ),
-      AllCourses(
-        id: 1002,
-        title: 'Sport',
-        imageFileName: 'Sport.jpg',
+      Course(
+        courseName: 'آموزش رایگان ابزار git',
+        coursePrice: 'رایگان',
+        teacherName: 'جادی میرمیرانی',
+        courseLength: '۱ ساعت و ۳۹ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/git.jpg',
       ),
-      AllCourses(
-        id: 1003,
-        title: 'Science',
-        imageFileName: 'Science.jpg',
+      Course(
+        courseName: 'آموزش رایگان نتوورک‌ پلاس',
+        coursePrice: 'رایگان',
+        teacherName: 'منوچهر بابایی',
+        courseLength: '۱ ساعت و ۳۵ دقیقه',
+        courseSessionNumber: 2,
+        coursePhoto: 'assets/images/courses/network+.jpg',
       ),
-      AllCourses(
-        id: 1004,
-        title: 'Polities',
-        imageFileName: 'Polities.jpg',
+      Course(
+        courseName: 'آموزش رایگان AutoCAD 2023',
+        coursePrice: 'رایگان',
+        teacherName: 'هاشم بهمن‌یار',
+        courseLength: '۲ ساعت و ۳۹ دقیقه',
+        courseSessionNumber: 3,
+        coursePhoto: 'assets/images/courses/AutoCAD.jpg',
       ),
-      AllCourses(
-        id: 1005,
-        title: 'Adventure',
-        imageFileName: 'Adventure.jpg',
+      Course(
+        courseName: 'آموزش مقدماتی Photoshop',
+        coursePrice: '۲۹۵۰۰۰ تومان',
+        teacherName: 'مهدی اشرفی',
+        courseLength: '۷ ساعت و ۵۲ دقیقه',
+        courseSessionNumber: 5,
+        coursePhoto: 'assets/images/courses/',
       ),
-      AllCourses(
-        id: 1006,
-        title: 'Cars',
-        imageFileName: 'Cars.jpg',
-      )
+      Course(
+        courseName: 'آموزش رایگان برنامه نویسی c++',
+        coursePrice: 'رایگان',
+        teacherName: 'فرشید شیرافکن',
+        courseLength: '۲ ساعت و ۳۹ دقیقه',
+        courseSessionNumber: 2,
+        coursePhoto: 'assets/images/courses/c++.jpg',
+      ),
+      Course(
+        courseName: 'آموزش رایگان پایتون',
+        coursePrice: 'رایگان',
+        teacherName: 'پژمان اقبالی',
+        courseLength: '۱۴۰ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/python.jpg',
+      ),
     ];
   }
 
-  static List<Post> get posts {
+  static List<Course> get myCourses {
     return [
-      Post(
-        id: 100001,
-        imageFileName: 'Profile-(9).jpg',
-        caption: 'Empty',
-        title: 'Empty',
-        likes: '0',
-        time: '0',
-        isBookMarked: false,
+      Course(
+        courseName: 'آموزش رایگان ابزار git',
+        coursePrice: 'رایگان',
+        teacherName: 'جادی میرمیرانی',
+        courseLength: '۱ ساعت و ۳۹ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/git.jpg',
       ),
-      Post(
-        id: 10002,
-        imageFileName: 'Profile-(9).jpg',
-        caption: 'Empty',
-        title: 'Empty',
-        likes: '0',
-        time: '0',
-        isBookMarked: false,
+      Course(
+        courseName: 'آموزش رایگان برنامه نویسی c++',
+        coursePrice: 'رایگان',
+        teacherName: 'فرشید شیرافکن',
+        courseLength: '۲ ساعت و ۳۹ دقیقه',
+        courseSessionNumber: 2,
+        coursePhoto: 'assets/images/courses/c++.jpg',
       ),
-      Post(
-        id: 10003,
-        imageFileName: 'Profile-(9).jpg',
-        caption: 'Empty',
-        title: 'Empty',
-        likes: '0',
-        time: '0',
-        isBookMarked: false,
+      Course(
+        courseName: 'آموزش نصب ویندوز ۱۱',
+        coursePrice: 'رایگان',
+        teacherName: 'رضا هاشمیان',
+        courseLength: '۱۳ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/windows11.jpg',
       ),
-      Post(
-        id: 10004,
-        imageFileName: 'Profile-(9).jpg',
-        caption: 'Empty',
-        title: 'Empty',
-        likes: '0',
-        time: '0',
-        isBookMarked: false,
+      Course(
+        courseName: 'آموزش مقدماتی Photoshop',
+        coursePrice: '۲۹۵۰۰۰ تومان',
+        teacherName: 'مهدی اشرفی',
+        courseLength: '۷ ساعت و ۵۲ دقیقه',
+        courseSessionNumber: 5,
+        coursePhoto: 'assets/images/courses/',
       ),
-      Post(
-        id: 10005,
-        imageFileName: 'Profile-(9).jpg',
-        caption: 'Empty',
-        title: 'Empty',
-        likes: '0',
-        time: '0',
-        isBookMarked: false,
+      Course(
+        courseName: 'آموزش رایگان پایتون',
+        coursePrice: 'رایگان',
+        teacherName: 'پژمان اقبالی',
+        courseLength: '۱۴۰ دقیقه',
+        courseSessionNumber: 1,
+        coursePhoto: 'assets/images/courses/python.jpg',
       ),
-      Post(
-        id: 10006,
-        imageFileName: 'Profile-(9).jpg',
-        caption: 'Empty',
-        title: 'Empty',
-        likes: '0',
-        time: '0',
-        isBookMarked: false,
+      Course(
+        courseName: 'آموزش رایگان نتوورک‌ پلاس',
+        coursePrice: 'رایگان',
+        teacherName: 'منوچهر بابایی',
+        courseLength: '۱ ساعت و ۳۵ دقیقه',
+        courseSessionNumber: 2,
+        coursePhoto: 'assets/images/courses/network+.jpg',
+      ),
+      Course(
+        courseName: 'آموزش Microsoft Project',
+        coursePrice: '۴۴۹۰۰۰ تومان',
+        teacherName: 'مصعود امینی',
+        courseLength: '۵ ساعت و ۳۳ دقیقه',
+        courseSessionNumber: 5,
+        coursePhoto: 'assets/images/courses/',
+      ),
+    ];
+  }
+
+  static List<Course> get cartList {
+    return [
+      Course(
+        courseName: 'آموزش Premier',
+        coursePrice: '۴۴۹۰۰۰ تومان',
+        teacherName: 'علی خسروی',
+        courseLength: '۸ ساعت و ۴۹ دقیقه',
+        courseSessionNumber: 6,
+        coursePhoto: 'assets/images/courses/premiere.jpg',
+      ),
+      Course(
+        courseName: 'آموزش Excel 2021',
+        coursePrice: '۳۵۹۰۰۰',
+        teacherName: 'آزاده سهرابی نژاد',
+        courseLength: '۹ ساعت و ۱۱ دقیقه',
+        courseSessionNumber: 43,
+        coursePhoto: 'assets/images/courses/excel.jpg',
+      ),
+      Course(
+        courseName: 'آموزش وردپرس WordPress مقدماتی',
+        coursePrice: '۳۳۹۰۰۰ تومان',
+        teacherName: 'رضا هاشمیان',
+        courseLength: '۱۱ ساعت و ۵۶ دقیقه',
+        courseSessionNumber: 56,
+        coursePhoto: 'assets/images/courses/wordPress.jpg',
       ),
     ];
   }
 }
- */
