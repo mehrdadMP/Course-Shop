@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class CourseAppTheme {
   static final String defaultFont = 'IranYekan';
-  static final Color appPrimaryColor = Color.fromARGB(255, 219, 183, 21);
-  static final Color appSecondaryColor = Color.fromARGB(255, 233, 87, 29);
+  static final Color appPrimaryColor = Color.fromARGB(255, 219, 67, 21);
+  static final Color appSecondaryColor = Color.fromARGB(255, 241, 130, 85);
   static final Color appThirdColor = Color.fromARGB(59, 165, 146, 146);
   static final Color appForthColor = Colors.white;
   static final Color appFifthColor = Colors.blue;

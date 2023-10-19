@@ -71,13 +71,7 @@ class _ThirdRow extends StatelessWidget {
                   textStyle: textStyle,
                   mainPadding: mainPadding,
                   dialogLabel: MyAppTexts.chooseBankPortal,
-                  textFieldCount: 0,
-                  labelTexts: [
-         
-                  ],
-                  iconsData: [
-                
-                  ]),
+                 ),
             );
           },
           child: Row(

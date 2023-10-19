@@ -39,6 +39,10 @@ class MyAppTexts {
   //cart_screen.dart file texts
   static String pay = ('پرداخت');
   static String paymentCart = ('سبد خرید');
-  static List<String> amountPrice = [('جمع  مبالغ'),('100 تومان')];
+  static List<String> amountPrice = [('جمع  مبالغ'), ('100 تومان')];
   static String chooseBankPortal = 'انتخاب درگاه بانک';
+
+  //my_app_show_dialog.dart file texts
+  static String closeWindow = ('بستن');
+  static String saveInfo = ('ثبت اطلاعات');
 }
