@@ -19,7 +19,8 @@ class MyCoursesScreen extends StatelessWidget {
         body: Padding(
           padding: mainPadding.copyWith(top: 15),
           child: ScrollConfiguration(
-            behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
             child: SingleChildScrollView(
               physics: NeverScrollableScrollPhysics(),
               child: Column(
@@ -63,8 +64,9 @@ class _SecondRow extends StatelessWidget {
             style: textStyle.bodySmall?.copyWith(fontSize: 12),
           )
         ],
-        row2Children: [
-          Row(
+        itemImage: [],
+        row2Children1: [
+          /* Row(
             children: [
               ClipRRect(
                   borderRadius: BorderRadius.circular(10),
@@ -89,9 +91,11 @@ class _SecondRow extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [],
             ),
-          )
+          ) */
         ],
-        row3Children: [
+        row2Children2: [],
+        row2Children3: [],
+        row3Children1: [
           LinearPercentIndicator(
             lineHeight: 15,
             width: 200,
@@ -103,6 +107,7 @@ class _SecondRow extends StatelessWidget {
           )
         ],
         itemsHight: 130,
+        itemCount: 15,
       ),
     );
   }

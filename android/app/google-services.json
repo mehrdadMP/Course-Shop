@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "348798216858",
+    "project_id": "course-store-a5e05",
+    "storage_bucket": "course-store-a5e05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348798216858:android:433e6a2b208b4d66db0d23",
+        "android_client_info": {
+          "package_name": "com.example.course_shop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4RbSBu1BuabS0IvobLkGLWrdnCIR4rM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

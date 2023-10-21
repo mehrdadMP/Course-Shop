@@ -7,14 +7,20 @@ import 'package:flutter/material.dart';
 class My_App_Vertical_ListView extends StatelessWidget {
   final Size contextSize;
   final TextTheme textStyle;
+  final List<String> itemImage;
   final List<Widget> row1Children;
-  final List<Widget> row2Children;
-  final List<Widget> row3Children;
+  final List<Widget> row2Children1;
+  final List<Widget>? row2Children2;
+  final List<Widget>? row2Children3;
+  final List<Widget> row3Children1;
+  final Widget? row3Children2;
+  final List<Widget>? row3Children3;
   final double? hight;
   final double? itemsHight;
   final bool setDividerBetweenItems;
   final bool setBorder;
   final bool setLeftArrowButton;
+  final int itemCount;
 
   ///This widget creates a list containing a number of items.
   ///Each item contains a photo and 3 rows [row1Children],[row2Children],[row3Children] in front of the photo,
@@ -24,14 +30,20 @@ class My_App_Vertical_ListView extends StatelessWidget {
     super.key,
     required this.contextSize,
     required this.textStyle,
+    required this.itemImage,
     required this.row1Children,
-    required this.row2Children,
-    required this.row3Children,
+    required this.row2Children1,
+    this.row2Children2,
+    this.row2Children3,
+    required this.row3Children1,
+    this.row3Children2,
+    this.row3Children3,
     required this.hight,
     required this.itemsHight,
     required this.setDividerBetweenItems,
     required this.setBorder,
     required this.setLeftArrowButton,
+    required this.itemCount,
   });
 
   @override
@@ -48,7 +60,7 @@ class My_App_Vertical_ListView extends StatelessWidget {
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: MyAppBouncingScrollPhysics(),
-                itemCount: 40,
+                itemCount: itemCount,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   return Column(
@@ -68,11 +80,23 @@ class My_App_Vertical_ListView extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                margin: EdgeInsets.fromLTRB(0, 7, 7, 7),
+                                margin: EdgeInsets.fromLTRB(
+                                    0,
+                                    85 - contextSize.height / 13,
+                                    7,
+                                    85 - contextSize.height / 13),
                                 width: contextSize.width - 340,
                                 decoration: BoxDecoration(
                                     color: CourseAppTheme.appSecondaryColor,
                                     borderRadius: BorderRadius.circular(11)),
+                                foregroundDecoration: BoxDecoration(
+                                  border: Border.all(width: 0.1),
+                                  borderRadius: BorderRadius.circular(11),
+                                  image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage(itemImage[index]),
+                                  ),
+                                ),
                               ),
                               Expanded(
                                 child: Padding(
@@ -87,20 +111,38 @@ class My_App_Vertical_ListView extends StatelessWidget {
                                       Padding(
                                         padding: const EdgeInsets.all(7.0),
                                         child: Row(
-                                          children: row1Children,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(7.0),
-                                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: row2Children,
+                                          children: [row1Children[index]],
                                         ),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.all(7.0),
                                         child: Row(
-                                          children: row3Children,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      5, 0, 0, 0),
+                                                  child: row2Children1[0],
+                                                ),
+                                                row2Children2![index],
+                                              ],
+                                            ),
+                                            row2Children3![index],
+                                          ],
                                         ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(7.0),
+                                        child: Row(children: [
+                                          row3Children1[index],
+                                          SizedBox(width: 5,),
+                                          row3Children2!,
+                                          SizedBox(width: 5,),
+                                          row3Children3![index]
+                                        ]),
                                       ),
                                     ],
                                   ),

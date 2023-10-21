@@ -14,7 +14,7 @@ class MyAppTexts {
   static String skillLearning = ('مهارت آموزی');
   static String DMaxLearning = ('نرم افزار 3DSMax');
   static String courseName = ('نام درس');
-  static String teacherName = ('نام مدرس');
+  static String teacherName = ('مدرس : ');
   static String coursePrice = ('100 تومان');
   static String courseLength = ('طول دوره(ساعت)');
   static String courseSessionsNumber = ('تعداد جلسات دوره');

@@ -3,7 +3,7 @@ class Course {
   final String coursePrice;
   final String teacherName;
   final String courseLength;
-  final int courseSessionNumber;
+  final String courseSessionNumber;
   final String coursePhoto;
 
   Course({
@@ -16,25 +16,6 @@ class Course {
   });
 }
 
-class Post {
-  final int id;
-  final String caption;
-  final String title;
-  final String likes;
-  final String time;
-  final bool isBookMarked;
-  final String imageFileName;
-
-  Post(
-      {required this.id,
-      required this.caption,
-      required this.title,
-      required this.likes,
-      required this.time,
-      required this.isBookMarked,
-      required this.imageFileName});
-}
-
 class AppData {
   static List<Course> get allCourses {
     return [
@@ -42,8 +23,8 @@ class AppData {
         courseName: 'آموزش رایگان پایتون',
         coursePrice: 'رایگان',
         teacherName: 'پژمان اقبالی',
-        courseLength: '۱۴۰ دقیقه',
-        courseSessionNumber: 1,
+        courseLength: '۲ ساعت و ۲۰ دقیقه',
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/python.jpg',
       ),
       Course(
@@ -51,7 +32,7 @@ class AppData {
         coursePrice: '۳۳۹۰۰۰ تومان',
         teacherName: 'رضا هاشمیان',
         courseLength: '۱۱ ساعت و ۵۶ دقیقه',
-        courseSessionNumber: 56,
+        courseSessionNumber: '۵۶ جلسه',
         coursePhoto: 'assets/images/courses/wordPress.jpg',
       ),
       Course(
@@ -59,7 +40,7 @@ class AppData {
         coursePrice: '۳۸۹۰۰۰ تومان',
         teacherName: 'فرشید شیرافکن',
         courseLength: '۳۰ ساعت و ۵۰ دقیقه',
-        courseSessionNumber: 70,
+        courseSessionNumber: '۷۰ جلسه',
         coursePhoto: 'assets/images/courses/math.jpg',
       ),
       Course(
@@ -67,7 +48,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'جادی میرمیرانی',
         courseLength: '۱ ساعت و ۳۹ دقیقه',
-        courseSessionNumber: 1,
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/git.jpg',
       ),
       Course(
@@ -75,7 +56,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'مهدی اشرفی',
         courseLength: '۲ ساعت و ۹ دقیقه',
-        courseSessionNumber: 3,
+        courseSessionNumber: '۳ جلسه',
         coursePhoto: 'assets/images/courses/illustrator.jpg',
       ),
       Course(
@@ -83,7 +64,7 @@ class AppData {
         coursePrice: '۳۵۹۰۰۰',
         teacherName: 'آزاده سهرابی نژاد',
         courseLength: '۹ ساعت و ۱۱ دقیقه',
-        courseSessionNumber: 43,
+        courseSessionNumber: '۴۳ جلسه',
         coursePhoto: 'assets/images/courses/excel.jpg',
       ),
       Course(
@@ -91,7 +72,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'فرشید شیرافکن',
         courseLength: '۲ ساعت و ۳۹ دقیقه',
-        courseSessionNumber: 2,
+        courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/c++.jpg',
       ),
       Course(
@@ -99,7 +80,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'عباس فرمانی',
         courseLength: '۱ ساعت و ۱۸ دقیقه',
-        courseSessionNumber: 1,
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/powerBI.jpg',
       ),
       Course(
@@ -107,7 +88,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'هاشم بهمن‌یار',
         courseLength: '۲ ساعت و ۳۹ دقیقه',
-        courseSessionNumber: 3,
+        courseSessionNumber: '۳ جلسه',
         coursePhoto: 'assets/images/courses/AutoCAD.jpg',
       ),
       Course(
@@ -115,7 +96,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'رضا هاشمیان',
         courseLength: '۱۳ دقیقه',
-        courseSessionNumber: 1,
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/windows11.jpg',
       ),
       Course(
@@ -123,15 +104,15 @@ class AppData {
         coursePrice: '۴۴۹۰۰۰ تومان',
         teacherName: 'مصعود امینی',
         courseLength: '۵ ساعت و ۳۳ دقیقه',
-        courseSessionNumber: 5,
-        coursePhoto: 'assets/images/courses/',
+        courseSessionNumber: '۵ جلسه',
+        coursePhoto: 'assets/images/courses/microsoftProject.jpg',
       ),
       Course(
         courseName: 'آموزش رایگان نتوورک‌ پلاس',
         coursePrice: 'رایگان',
         teacherName: 'منوچهر بابایی',
         courseLength: '۱ ساعت و ۳۵ دقیقه',
-        courseSessionNumber: 2,
+        courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/network+.jpg',
       ),
       Course(
@@ -139,7 +120,7 @@ class AppData {
         coursePrice: '۴۴۹۰۰۰ تومان',
         teacherName: 'علی خسروی',
         courseLength: '۸ ساعت و ۴۹ دقیقه',
-        courseSessionNumber: 6,
+        courseSessionNumber: '۶ جلسه',
         coursePhoto: 'assets/images/courses/premiere.jpg',
       ),
       Course(
@@ -147,15 +128,15 @@ class AppData {
         coursePrice: '۲۹۵۰۰۰ تومان',
         teacherName: 'مهدی اشرفی',
         courseLength: '۷ ساعت و ۵۲ دقیقه',
-        courseSessionNumber: 5,
-        coursePhoto: 'assets/images/courses/',
+        courseSessionNumber: '۵ جلسه',
+        coursePhoto: 'assets/images/courses/photoshop.jpg',
       ),
       Course(
         courseName: 'آموزش رایگان CorelDraw',
         coursePrice: 'رایگان',
         teacherName: 'مهدی اشرفی',
         courseLength: '۲ ساعت و ۱ دقیقه',
-        courseSessionNumber: 1,
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/corelDraw.jpg',
       ),
     ];
@@ -168,7 +149,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'رضا هاشمیان',
         courseLength: '۱۳ دقیقه',
-        courseSessionNumber: 1,
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/windows11.jpg',
       ),
       Course(
@@ -176,7 +157,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'جادی میرمیرانی',
         courseLength: '۱ ساعت و ۳۹ دقیقه',
-        courseSessionNumber: 1,
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/git.jpg',
       ),
       Course(
@@ -184,7 +165,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'منوچهر بابایی',
         courseLength: '۱ ساعت و ۳۵ دقیقه',
-        courseSessionNumber: 2,
+        courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/network+.jpg',
       ),
       Course(
@@ -192,7 +173,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'هاشم بهمن‌یار',
         courseLength: '۲ ساعت و ۳۹ دقیقه',
-        courseSessionNumber: 3,
+        courseSessionNumber: '۳ جلسه',
         coursePhoto: 'assets/images/courses/AutoCAD.jpg',
       ),
       Course(
@@ -200,23 +181,23 @@ class AppData {
         coursePrice: '۲۹۵۰۰۰ تومان',
         teacherName: 'مهدی اشرفی',
         courseLength: '۷ ساعت و ۵۲ دقیقه',
-        courseSessionNumber: 5,
-        coursePhoto: 'assets/images/courses/',
+        courseSessionNumber: '۵ جلسه',
+        coursePhoto: 'assets/images/courses/photoshop.jpg',
       ),
       Course(
         courseName: 'آموزش رایگان برنامه نویسی c++',
         coursePrice: 'رایگان',
         teacherName: 'فرشید شیرافکن',
         courseLength: '۲ ساعت و ۳۹ دقیقه',
-        courseSessionNumber: 2,
+        courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/c++.jpg',
       ),
       Course(
         courseName: 'آموزش رایگان پایتون',
         coursePrice: 'رایگان',
         teacherName: 'پژمان اقبالی',
-        courseLength: '۱۴۰ دقیقه',
-        courseSessionNumber: 1,
+        courseLength: '۲ ساعت و ۲۰ دقیقه',
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/python.jpg',
       ),
     ];
@@ -229,7 +210,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'جادی میرمیرانی',
         courseLength: '۱ ساعت و ۳۹ دقیقه',
-        courseSessionNumber: 1,
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/git.jpg',
       ),
       Course(
@@ -237,7 +218,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'فرشید شیرافکن',
         courseLength: '۲ ساعت و ۳۹ دقیقه',
-        courseSessionNumber: 2,
+        courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/c++.jpg',
       ),
       Course(
@@ -245,7 +226,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'رضا هاشمیان',
         courseLength: '۱۳ دقیقه',
-        courseSessionNumber: 1,
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/windows11.jpg',
       ),
       Course(
@@ -253,15 +234,15 @@ class AppData {
         coursePrice: '۲۹۵۰۰۰ تومان',
         teacherName: 'مهدی اشرفی',
         courseLength: '۷ ساعت و ۵۲ دقیقه',
-        courseSessionNumber: 5,
-        coursePhoto: 'assets/images/courses/',
+        courseSessionNumber: ' ۵ جلسه',
+        coursePhoto: 'assets/images/courses/photoshop.jpg',
       ),
       Course(
         courseName: 'آموزش رایگان پایتون',
         coursePrice: 'رایگان',
         teacherName: 'پژمان اقبالی',
-        courseLength: '۱۴۰ دقیقه',
-        courseSessionNumber: 1,
+        courseLength: '۲ ساعت و ۲۰ دقیقه',
+        courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/python.jpg',
       ),
       Course(
@@ -269,7 +250,7 @@ class AppData {
         coursePrice: 'رایگان',
         teacherName: 'منوچهر بابایی',
         courseLength: '۱ ساعت و ۳۵ دقیقه',
-        courseSessionNumber: 2,
+        courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/network+.jpg',
       ),
       Course(
@@ -277,7 +258,7 @@ class AppData {
         coursePrice: '۴۴۹۰۰۰ تومان',
         teacherName: 'مصعود امینی',
         courseLength: '۵ ساعت و ۳۳ دقیقه',
-        courseSessionNumber: 5,
+        courseSessionNumber: '۵ جلسه',
         coursePhoto: 'assets/images/courses/',
       ),
     ];
@@ -290,7 +271,7 @@ class AppData {
         coursePrice: '۴۴۹۰۰۰ تومان',
         teacherName: 'علی خسروی',
         courseLength: '۸ ساعت و ۴۹ دقیقه',
-        courseSessionNumber: 6,
+        courseSessionNumber: '۶ جلسه',
         coursePhoto: 'assets/images/courses/premiere.jpg',
       ),
       Course(
@@ -298,7 +279,7 @@ class AppData {
         coursePrice: '۳۵۹۰۰۰',
         teacherName: 'آزاده سهرابی نژاد',
         courseLength: '۹ ساعت و ۱۱ دقیقه',
-        courseSessionNumber: 43,
+        courseSessionNumber: '۴۳ جلسه',
         coursePhoto: 'assets/images/courses/excel.jpg',
       ),
       Course(
@@ -306,7 +287,7 @@ class AppData {
         coursePrice: '۳۳۹۰۰۰ تومان',
         teacherName: 'رضا هاشمیان',
         courseLength: '۱۱ ساعت و ۵۶ دقیقه',
-        courseSessionNumber: 56,
+        courseSessionNumber: '۵۶ جلسه',
         coursePhoto: 'assets/images/courses/wordPress.jpg',
       ),
     ];

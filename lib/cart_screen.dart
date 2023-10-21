@@ -127,14 +127,15 @@ class _SecondRow extends StatelessWidget {
         setDividerBetweenItems: true,
         setBorder: false,
         setLeftArrowButton: false,
+        itemImage: [],
         row1Children: [
           Text(
             MyAppTexts.courseName,
             style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
           ),
         ],
-        row2Children: [
-          Row(
+        row2Children1: [
+          /* Row(
             children: [
               ClipRRect(
                   borderRadius: BorderRadius.circular(10),
@@ -165,29 +166,11 @@ class _SecondRow extends StatelessWidget {
                         fontWeight: FontWeight.w800)),
               ],
             ),
-          ),
-        ],
-        row3Children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-            child: Text(
-              MyAppTexts.courseLength,
-              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-            ),
-          ),
-          Icon(
-            CupertinoIcons.circle_fill,
-            color: CourseAppTheme.appFifthColor,
-            size: 6,
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-            child: Text(
-              MyAppTexts.courseSessionsNumber,
-              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-            ),
-          ),
-        ],
+          ), */
+        ],row2Children2: [],row2Children3: [],
+        row3Children1: [
+         
+        ], itemCount: 15,
       ),
     );
   }

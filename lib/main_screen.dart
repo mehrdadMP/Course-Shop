@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:course_shop/data/data.dart';
 import 'package:course_shop/my_app_texts.dart';
 import 'package:course_shop/reusable_widgets/my_app_divider.dart';
 import 'package:course_shop/reusable_widgets/my_app_bouncing_scroll_physics.dart';
@@ -15,6 +16,8 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Course> allCourses = AppData.allCourses;
+    final List<Course> popularCourses = AppData.popularCourses;
     final textStyle = Theme.of(context).textTheme;
     const mainPadding = EdgeInsets.fromLTRB(25, 0, 25, 0);
     final contextSize = MediaQuery.sizeOf(context);
@@ -39,12 +42,16 @@ class MainScreen extends StatelessWidget {
                   coursesCategories: coursesCategories,
                   textStyle: textStyle,
                   mainPadding: mainPadding),
-              _FourthRow(textStyle: textStyle, mainPadding: mainPadding),
+              _FourthRow(
+                  textStyle: textStyle,
+                  mainPadding: mainPadding,
+                  allCourses: allCourses),
               _FifthRow(textStyle: textStyle, mainPadding: mainPadding),
               _SixthRow(
                   textStyle: textStyle,
                   mainPadding: mainPadding,
-                  contextSize: contextSize),
+                  contextSize: contextSize,
+                  popularCourses: popularCourses),
             ]),
           ),
         ),
@@ -57,17 +64,57 @@ class _SixthRow extends StatelessWidget {
   final TextTheme textStyle;
   final EdgeInsets mainPadding;
   final Size contextSize;
+  final List<Course> popularCourses;
 
   const _SixthRow({
     required this.textStyle,
     required this.mainPadding,
     required this.contextSize,
+    required this.popularCourses,
   });
   @override
   Widget build(BuildContext context) {
+    final _popularCoursesCourseNames = List<Text>.generate(
+        popularCourses.length,
+        (index) => Text(
+              popularCourses[index].courseName,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ));
+    final _popularCoursesTeacherNames = List<Text>.generate(
+        popularCourses.length,
+        (index) => Text(
+              popularCourses[index].teacherName,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ));
+    final _popularCoursesPrice = List<Text>.generate(
+        popularCourses.length,
+        (index) => Text(
+              popularCourses[index].coursePrice,
+              style: textStyle.bodySmall?.copyWith(
+                  color: CourseAppTheme.appFifthColor,
+                  fontSize: 13.5,
+                  fontWeight: FontWeight.w700),
+            ));
+    final _popularCoursesPhoto = List<String>.generate(
+        popularCourses.length, (index) => popularCourses[index].coursePhoto);
+    final _popularCoursesLength = List<Text>.generate(
+        popularCourses.length,
+        (index) => Text(
+              popularCourses[index].courseLength,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ));
+    final _popularCoursesSeddionNumber = List<Text>.generate(
+        popularCourses.length,
+        (index) => Text(
+              popularCourses[index].courseSessionNumber,
+              style: textStyle.bodySmall?.copyWith(
+                  fontSize: 11.5),
+            ));
+
     return Padding(
       padding: mainPadding.copyWith(left: 25, right: 25),
       child: My_App_Vertical_ListView(
+        itemCount: popularCourses.length,
         contextSize: contextSize,
         textStyle: textStyle,
         hight: contextSize.height - 550,
@@ -75,65 +122,26 @@ class _SixthRow extends StatelessWidget {
         setDividerBetweenItems: true,
         setBorder: true,
         setLeftArrowButton: true,
-        row1Children: [
-          Text(
-            MyAppTexts.courseName,
-            style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-          ),
+        itemImage: _popularCoursesPhoto,
+        row1Children: _popularCoursesCourseNames,
+        row2Children1: [
+          ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: SizedBox(
+                width: 20,
+                height: 20,
+                child: Image.asset('assets/images/blank-profile-picture.png'),
+              )),
         ],
-        row2Children: [
-          Row(
-            children: [
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child:
-                        Image.asset('assets/images/blank-profile-picture.png'),
-                  )),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                child: Text(
-                  MyAppTexts.teacherName,
-                  style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(MyAppTexts.coursePrice,
-                    style: textStyle.bodySmall
-                        ?.copyWith(color: CourseAppTheme.appFifthColor,fontSize: 15)),
-              ],
-            ),
-          ),
-        ],
-        row3Children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-            child: Text(
-              MyAppTexts.courseLength,
-              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-            ),
-          ),
-          Icon(
-            CupertinoIcons.circle_fill,
-            color: CourseAppTheme.appFifthColor,
-            size: 6,
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-            child: Text(
-              MyAppTexts.courseSessionsNumber,
-              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-            ),
-          ),
-        ],
+        row2Children2: _popularCoursesTeacherNames,
+        row2Children3: _popularCoursesPrice,
+        row3Children1: _popularCoursesLength,
+        row3Children2: Icon(
+          CupertinoIcons.circle_fill,
+          color: CourseAppTheme.appFifthColor,
+          size: 7,
+        ),
+        row3Children3: _popularCoursesSeddionNumber,
       ),
     );
   }
@@ -168,11 +176,13 @@ class _FifthRow extends StatelessWidget {
 
 class _FourthRow extends StatelessWidget {
   final EdgeInsets mainPadding;
+  final List<Course> allCourses;
 
   const _FourthRow({
     super.key,
     required this.textStyle,
     required this.mainPadding,
+    required this.allCourses,
   });
 
   final TextTheme textStyle;
@@ -183,7 +193,7 @@ class _FourthRow extends StatelessWidget {
     return Padding(
       padding: mainPadding.copyWith(left: 0, right: 0),
       child: CarouselSlider.builder(
-        itemCount: 15,
+        itemCount: allCourses.length,
         itemBuilder: (context, index, realIndex) {
           return Stack(
             children: [
@@ -214,11 +224,20 @@ class _FourthRow extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   child: Column(
                     children: [
-                      Container(
-                        height: 175,
-                        decoration: BoxDecoration(
-                          color: CourseAppTheme.appSecondaryColor,
-                          borderRadius: BorderRadius.circular(15),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Container(
+                          foregroundDecoration: BoxDecoration(
+                              border: Border.all(width: 0.1),
+                              borderRadius: BorderRadius.circular(13.5),
+                              image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: AssetImage(
+                                      allCourses[index].coursePhoto))),
+                          height: 175,
+                          decoration: BoxDecoration(
+                            color: CourseAppTheme.appSecondaryColor,
+                          ),
                         ),
                       ),
                       Padding(
@@ -227,34 +246,38 @@ class _FourthRow extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Text>[
                             Text(
-                              MyAppTexts.courseName,
+                              allCourses[index].courseName,
                               style: textStyle.bodySmall,
                             ),
-                            Text(MyAppTexts.coursePrice,
-                                style: textStyle.bodySmall?.copyWith(
-                                    color: CourseAppTheme.appFifthColor)),
                           ],
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(7.0),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: Image.asset(
-                                      'assets/images/blank-profile-picture.png'),
-                                )),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                              child: Text(
-                                MyAppTexts.teacherName,
-                                style: textStyle.bodySmall,
+                            Row(children: [
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: SizedBox(
+                                    width: 20,
+                                    height: 20,
+                                    child: Image.asset(
+                                        'assets/images/blank-profile-picture.png'),
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                child: Text(
+                                  MyAppTexts.teacherName +
+                                      allCourses[index].teacherName,
+                                  style: textStyle.bodySmall,
+                                ),
                               ),
-                            ),
+                            ]),
+                            Text(allCourses[index].coursePrice,
+                                style: textStyle.bodySmall?.copyWith(
+                                    color: CourseAppTheme.appFifthColor)),
                           ],
                         ),
                       ),
@@ -265,7 +288,7 @@ class _FourthRow extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
                               child: Text(
-                                MyAppTexts.courseLength,
+                                allCourses[index].courseLength,
                                 style: textStyle.bodySmall,
                               ),
                             ),
@@ -277,7 +300,7 @@ class _FourthRow extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                               child: Text(
-                                MyAppTexts.courseSessionsNumber,
+                                allCourses[index].courseSessionNumber,
                                 style: textStyle.bodySmall,
                               ),
                             ),
