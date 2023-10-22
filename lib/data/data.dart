@@ -1,3 +1,6 @@
+import 'package:course_shop/theme.dart';
+import 'package:flutter/material.dart';
+
 class Course {
   final String courseName;
   final String coursePrice;
@@ -5,6 +8,7 @@ class Course {
   final String courseLength;
   final String courseSessionNumber;
   final String coursePhoto;
+  final double rateOfProgressInCourse;
 
   Course({
     required this.courseName,
@@ -13,6 +17,7 @@ class Course {
     required this.courseLength,
     required this.courseSessionNumber,
     required this.coursePhoto,
+    required this.rateOfProgressInCourse,
   });
 }
 
@@ -26,6 +31,7 @@ class AppData {
         courseLength: '۲ ساعت و ۲۰ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/python.jpg',
+        rateOfProgressInCourse: 0.1,
       ),
       Course(
         courseName: 'آموزش وردپرس WordPress مقدماتی',
@@ -34,6 +40,7 @@ class AppData {
         courseLength: '۱۱ ساعت و ۵۶ دقیقه',
         courseSessionNumber: '۵۶ جلسه',
         coursePhoto: 'assets/images/courses/wordPress.jpg',
+        rateOfProgressInCourse: 0.5,
       ),
       Course(
         courseName: 'آموزش ریاضی عمومی ۱',
@@ -42,6 +49,7 @@ class AppData {
         courseLength: '۳۰ ساعت و ۵۰ دقیقه',
         courseSessionNumber: '۷۰ جلسه',
         coursePhoto: 'assets/images/courses/math.jpg',
+        rateOfProgressInCourse: 0.7,
       ),
       Course(
         courseName: 'آموزش رایگان ابزار git',
@@ -50,6 +58,7 @@ class AppData {
         courseLength: '۱ ساعت و ۳۹ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/git.jpg',
+        rateOfProgressInCourse: 0.35,
       ),
       Course(
         courseName: 'آموزش رایگان illustrator',
@@ -58,6 +67,7 @@ class AppData {
         courseLength: '۲ ساعت و ۹ دقیقه',
         courseSessionNumber: '۳ جلسه',
         coursePhoto: 'assets/images/courses/illustrator.jpg',
+        rateOfProgressInCourse: 0.54,
       ),
       Course(
         courseName: 'آموزش Excel 2021',
@@ -66,6 +76,7 @@ class AppData {
         courseLength: '۹ ساعت و ۱۱ دقیقه',
         courseSessionNumber: '۴۳ جلسه',
         coursePhoto: 'assets/images/courses/excel.jpg',
+        rateOfProgressInCourse: 0.73,
       ),
       Course(
         courseName: 'آموزش رایگان برنامه نویسی c++',
@@ -74,6 +85,7 @@ class AppData {
         courseLength: '۲ ساعت و ۳۹ دقیقه',
         courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/c++.jpg',
+        rateOfProgressInCourse: 0.89,
       ),
       Course(
         courseName: 'آموزش رایگان Power BI',
@@ -82,6 +94,7 @@ class AppData {
         courseLength: '۱ ساعت و ۱۸ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/powerBI.jpg',
+        rateOfProgressInCourse: 0.65,
       ),
       Course(
         courseName: 'آموزش رایگان AutoCAD 2023',
@@ -90,6 +103,7 @@ class AppData {
         courseLength: '۲ ساعت و ۳۹ دقیقه',
         courseSessionNumber: '۳ جلسه',
         coursePhoto: 'assets/images/courses/AutoCAD.jpg',
+        rateOfProgressInCourse: 0.91,
       ),
       Course(
         courseName: 'آموزش نصب ویندوز ۱۱',
@@ -98,6 +112,7 @@ class AppData {
         courseLength: '۱۳ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/windows11.jpg',
+        rateOfProgressInCourse: 0.09,
       ),
       Course(
         courseName: 'آموزش Microsoft Project',
@@ -106,6 +121,7 @@ class AppData {
         courseLength: '۵ ساعت و ۳۳ دقیقه',
         courseSessionNumber: '۵ جلسه',
         coursePhoto: 'assets/images/courses/microsoftProject.jpg',
+        rateOfProgressInCourse: 0.8,
       ),
       Course(
         courseName: 'آموزش رایگان نتوورک‌ پلاس',
@@ -114,6 +130,7 @@ class AppData {
         courseLength: '۱ ساعت و ۳۵ دقیقه',
         courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/network+.jpg',
+        rateOfProgressInCourse: 0.57,
       ),
       Course(
         courseName: 'آموزش Premier',
@@ -122,6 +139,7 @@ class AppData {
         courseLength: '۸ ساعت و ۴۹ دقیقه',
         courseSessionNumber: '۶ جلسه',
         coursePhoto: 'assets/images/courses/premiere.jpg',
+        rateOfProgressInCourse: 0.2,
       ),
       Course(
         courseName: 'آموزش مقدماتی Photoshop',
@@ -130,6 +148,7 @@ class AppData {
         courseLength: '۷ ساعت و ۵۲ دقیقه',
         courseSessionNumber: '۵ جلسه',
         coursePhoto: 'assets/images/courses/photoshop.jpg',
+        rateOfProgressInCourse: 0.6,
       ),
       Course(
         courseName: 'آموزش رایگان CorelDraw',
@@ -138,6 +157,7 @@ class AppData {
         courseLength: '۲ ساعت و ۱ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/corelDraw.jpg',
+        rateOfProgressInCourse: 0.45,
       ),
     ];
   }
@@ -151,6 +171,7 @@ class AppData {
         courseLength: '۱۳ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/windows11.jpg',
+        rateOfProgressInCourse: 0.09,
       ),
       Course(
         courseName: 'آموزش رایگان ابزار git',
@@ -159,6 +180,7 @@ class AppData {
         courseLength: '۱ ساعت و ۳۹ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/git.jpg',
+        rateOfProgressInCourse: 0.35,
       ),
       Course(
         courseName: 'آموزش رایگان نتوورک‌ پلاس',
@@ -167,6 +189,7 @@ class AppData {
         courseLength: '۱ ساعت و ۳۵ دقیقه',
         courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/network+.jpg',
+        rateOfProgressInCourse: 0.57,
       ),
       Course(
         courseName: 'آموزش رایگان AutoCAD 2023',
@@ -175,6 +198,7 @@ class AppData {
         courseLength: '۲ ساعت و ۳۹ دقیقه',
         courseSessionNumber: '۳ جلسه',
         coursePhoto: 'assets/images/courses/AutoCAD.jpg',
+        rateOfProgressInCourse: 0.91,
       ),
       Course(
         courseName: 'آموزش مقدماتی Photoshop',
@@ -183,6 +207,7 @@ class AppData {
         courseLength: '۷ ساعت و ۵۲ دقیقه',
         courseSessionNumber: '۵ جلسه',
         coursePhoto: 'assets/images/courses/photoshop.jpg',
+        rateOfProgressInCourse: 0.6,
       ),
       Course(
         courseName: 'آموزش رایگان برنامه نویسی c++',
@@ -191,6 +216,7 @@ class AppData {
         courseLength: '۲ ساعت و ۳۹ دقیقه',
         courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/c++.jpg',
+        rateOfProgressInCourse: 0.89,
       ),
       Course(
         courseName: 'آموزش رایگان پایتون',
@@ -199,6 +225,7 @@ class AppData {
         courseLength: '۲ ساعت و ۲۰ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/python.jpg',
+        rateOfProgressInCourse: 0.1,
       ),
     ];
   }
@@ -212,6 +239,7 @@ class AppData {
         courseLength: '۱ ساعت و ۳۹ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/git.jpg',
+        rateOfProgressInCourse: 0.35,
       ),
       Course(
         courseName: 'آموزش رایگان برنامه نویسی c++',
@@ -220,6 +248,7 @@ class AppData {
         courseLength: '۲ ساعت و ۳۹ دقیقه',
         courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/c++.jpg',
+        rateOfProgressInCourse: 0.89,
       ),
       Course(
         courseName: 'آموزش نصب ویندوز ۱۱',
@@ -228,6 +257,7 @@ class AppData {
         courseLength: '۱۳ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/windows11.jpg',
+        rateOfProgressInCourse: 0.09,
       ),
       Course(
         courseName: 'آموزش مقدماتی Photoshop',
@@ -236,6 +266,7 @@ class AppData {
         courseLength: '۷ ساعت و ۵۲ دقیقه',
         courseSessionNumber: ' ۵ جلسه',
         coursePhoto: 'assets/images/courses/photoshop.jpg',
+        rateOfProgressInCourse: 0.6,
       ),
       Course(
         courseName: 'آموزش رایگان پایتون',
@@ -244,6 +275,7 @@ class AppData {
         courseLength: '۲ ساعت و ۲۰ دقیقه',
         courseSessionNumber: '۱ جلسه',
         coursePhoto: 'assets/images/courses/python.jpg',
+        rateOfProgressInCourse: 0.1,
       ),
       Course(
         courseName: 'آموزش رایگان نتوورک‌ پلاس',
@@ -252,6 +284,7 @@ class AppData {
         courseLength: '۱ ساعت و ۳۵ دقیقه',
         courseSessionNumber: '۲ جلسه',
         coursePhoto: 'assets/images/courses/network+.jpg',
+        rateOfProgressInCourse: 0.57,
       ),
       Course(
         courseName: 'آموزش Microsoft Project',
@@ -259,7 +292,8 @@ class AppData {
         teacherName: 'مصعود امینی',
         courseLength: '۵ ساعت و ۳۳ دقیقه',
         courseSessionNumber: '۵ جلسه',
-        coursePhoto: 'assets/images/courses/',
+        coursePhoto: 'assets/images/courses/microsoftProject.jpg',
+        rateOfProgressInCourse: 0.8,
       ),
     ];
   }
@@ -273,6 +307,7 @@ class AppData {
         courseLength: '۸ ساعت و ۴۹ دقیقه',
         courseSessionNumber: '۶ جلسه',
         coursePhoto: 'assets/images/courses/premiere.jpg',
+        rateOfProgressInCourse: 0.2,
       ),
       Course(
         courseName: 'آموزش Excel 2021',
@@ -281,6 +316,7 @@ class AppData {
         courseLength: '۹ ساعت و ۱۱ دقیقه',
         courseSessionNumber: '۴۳ جلسه',
         coursePhoto: 'assets/images/courses/excel.jpg',
+        rateOfProgressInCourse: 0.73,
       ),
       Course(
         courseName: 'آموزش وردپرس WordPress مقدماتی',
@@ -289,7 +325,77 @@ class AppData {
         courseLength: '۱۱ ساعت و ۵۶ دقیقه',
         courseSessionNumber: '۵۶ جلسه',
         coursePhoto: 'assets/images/courses/wordPress.jpg',
+        rateOfProgressInCourse: 0.5,
       ),
     ];
+  }
+}
+
+class GetData {
+  final TextTheme textStyle;
+  final List<Course> courses;
+  GetData({
+    required this.courses,
+    required this.textStyle,
+  });
+
+  List<Text> get coursesNames {
+    return List<Text>.generate(
+        courses.length,
+        (index) => Text(
+              courses[index].courseName,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ));
+  }
+
+  List<Text> get coursesTeacherNames {
+    return List<Text>.generate(
+        courses.length,
+        (index) => Text(
+              courses[index].teacherName,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ));
+  }
+
+  List<Text> get coursesPrice {
+    return List<Text>.generate(
+        courses.length,
+        (index) => Text(
+              courses[index].coursePrice,
+              style: textStyle.bodySmall?.copyWith(
+                  color: CourseAppTheme.appFifthColor,
+                  fontSize: 13.5,
+                  fontWeight: FontWeight.w700),
+            ));
+  }
+
+  List<String> get coursesPhoto {
+    return List<String>.generate(
+        courses.length, (index) => courses[index].coursePhoto);
+  }
+
+  List<Text> get coursesLength {
+    return List<Text>.generate(
+        courses.length,
+        (index) => Text(
+              courses[index].courseLength,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ));
+  }
+
+  List<Text> get coursesSessionNumber {
+    return List<Text>.generate(
+        courses.length,
+        (index) => Text(
+              courses[index].courseSessionNumber,
+              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
+            ));
+  }
+
+  List<double> get coursesProgress {
+    return List<double>.generate(
+      courses.length,
+      (index) => courses[index].rateOfProgressInCourse,
+    );
   }
 }

@@ -74,42 +74,7 @@ class _SixthRow extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    final _popularCoursesCourseNames = List<Text>.generate(
-        popularCourses.length,
-        (index) => Text(
-              popularCourses[index].courseName,
-              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-            ));
-    final _popularCoursesTeacherNames = List<Text>.generate(
-        popularCourses.length,
-        (index) => Text(
-              popularCourses[index].teacherName,
-              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-            ));
-    final _popularCoursesPrice = List<Text>.generate(
-        popularCourses.length,
-        (index) => Text(
-              popularCourses[index].coursePrice,
-              style: textStyle.bodySmall?.copyWith(
-                  color: CourseAppTheme.appFifthColor,
-                  fontSize: 13.5,
-                  fontWeight: FontWeight.w700),
-            ));
-    final _popularCoursesPhoto = List<String>.generate(
-        popularCourses.length, (index) => popularCourses[index].coursePhoto);
-    final _popularCoursesLength = List<Text>.generate(
-        popularCourses.length,
-        (index) => Text(
-              popularCourses[index].courseLength,
-              style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-            ));
-    final _popularCoursesSeddionNumber = List<Text>.generate(
-        popularCourses.length,
-        (index) => Text(
-              popularCourses[index].courseSessionNumber,
-              style: textStyle.bodySmall?.copyWith(
-                  fontSize: 11.5),
-            ));
+    final getData = GetData(courses: popularCourses, textStyle: textStyle);
 
     return Padding(
       padding: mainPadding.copyWith(left: 25, right: 25),
@@ -122,8 +87,8 @@ class _SixthRow extends StatelessWidget {
         setDividerBetweenItems: true,
         setBorder: true,
         setLeftArrowButton: true,
-        itemImage: _popularCoursesPhoto,
-        row1Children: _popularCoursesCourseNames,
+        itemImage: getData.coursesPhoto,
+        row1Children: getData.coursesNames,
         row2Children1: [
           ClipRRect(
               borderRadius: BorderRadius.circular(10),
@@ -133,15 +98,15 @@ class _SixthRow extends StatelessWidget {
                 child: Image.asset('assets/images/blank-profile-picture.png'),
               )),
         ],
-        row2Children2: _popularCoursesTeacherNames,
-        row2Children3: _popularCoursesPrice,
-        row3Children1: _popularCoursesLength,
+        row2Children2: getData.coursesTeacherNames,
+        row2Children3: getData.coursesPrice,
+        row3Children1: getData.coursesLength,
         row3Children2: Icon(
           CupertinoIcons.circle_fill,
           color: CourseAppTheme.appFifthColor,
           size: 7,
         ),
-        row3Children3: _popularCoursesSeddionNumber,
+        row3Children3: getData.coursesSessionNumber,
       ),
     );
   }

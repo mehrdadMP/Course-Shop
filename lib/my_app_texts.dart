@@ -34,7 +34,7 @@ class MyAppTexts {
   static String signInPassword = ('رمز عبور');
 
   //my_courses_screen.dart file texts
-  static String myCoursesNumber = ('تعداد دروس : 0');
+  static String myCoursesNumber = ('تعداد دروس : ');
 
   //cart_screen.dart file texts
   static String pay = ('پرداخت');

@@ -1,3 +1,4 @@
+import 'package:course_shop/data/data.dart';
 import 'package:course_shop/my_app_texts.dart';
 import 'package:course_shop/reusable_widgets/my_app_icon_button.dart';
 import 'package:course_shop/reusable_widgets/my_app_vertical_listview.dart';
@@ -11,6 +12,7 @@ class MyCoursesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Course> myCourses = AppData.myCourses;
     final contextSize = MediaQuery.sizeOf(context);
     final mainPadding = CourseAppTheme.mainPadding;
     final textStyle = Theme.of(context).textTheme;
@@ -25,8 +27,12 @@ class MyCoursesScreen extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               child: Column(
                 children: [
-                  _FirstRow(textStyle: textStyle),
-                  _SecondRow(contextSize: contextSize, textStyle: textStyle)
+                  _FirstRow(textStyle: textStyle, courses: myCourses),
+                  _SecondRow(
+                    contextSize: contextSize,
+                    textStyle: textStyle,
+                    myCourses: myCourses,
+                  )
                 ],
               ),
             ),
@@ -38,10 +44,12 @@ class MyCoursesScreen extends StatelessWidget {
 }
 
 class _SecondRow extends StatelessWidget {
+  final List<Course> myCourses;
   const _SecondRow({
     super.key,
     required this.contextSize,
     required this.textStyle,
+    required this.myCourses,
   });
 
   final Size contextSize;
@@ -49,6 +57,7 @@ class _SecondRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final getData = GetData(courses: myCourses, textStyle: textStyle);
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: My_App_Vertical_ListView(
@@ -58,65 +67,32 @@ class _SecondRow extends StatelessWidget {
         setDividerBetweenItems: true,
         setBorder: true,
         setLeftArrowButton: true,
-        row1Children: [
-          Text(
-            MyAppTexts.courseName,
-            style: textStyle.bodySmall?.copyWith(fontSize: 12),
-          )
-        ],
-        itemImage: [],
+        row1Children: getData.coursesNames,
+        itemImage: getData.coursesPhoto,
         row2Children1: [
-          /* Row(
-            children: [
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child:
-                        Image.asset('assets/images/blank-profile-picture.png'),
-                  )),
-              Padding(
-                padding:  const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                child: Text(
-                  MyAppTexts.teacherName,
-                  style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [],
-            ),
-          ) */
+          ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: SizedBox(
+                width: 20,
+                height: 20,
+                child: Image.asset('assets/images/blank-profile-picture.png'),
+              )),
         ],
-        row2Children2: [],
-        row2Children3: [],
-        row3Children1: [
-          LinearPercentIndicator(
-            lineHeight: 15,
-            width: 200,
-            backgroundColor: CourseAppTheme.appSecondaryColor,
-            progressColor: CourseAppTheme.appFifthColor,
-            percent: 0.5,
-            barRadius: Radius.circular(5),
-            isRTL: true,
-          )
-        ],
+        row2Children2: getData.coursesTeacherNames,
+        row3Children4: getData.coursesProgress,
         itemsHight: 130,
-        itemCount: 15,
+        itemCount: myCourses.length,
       ),
     );
   }
 }
 
 class _FirstRow extends StatelessWidget {
+  final List<Course> courses;
   const _FirstRow({
     super.key,
     required this.textStyle,
+    required this.courses,
   });
 
   final TextTheme textStyle;
@@ -141,7 +117,7 @@ class _FirstRow extends StatelessWidget {
               height: 5,
             ),
             Text(
-              MyAppTexts.myCoursesNumber,
+              MyAppTexts.myCoursesNumber + (courses.length).toString(),
               style: textStyle.bodySmall?.copyWith(
                   color: CourseAppTheme.appFifthColor,
                   fontWeight: FontWeight.w500,

@@ -3,6 +3,7 @@ import 'package:course_shop/reusable_widgets/my_app_divider.dart';
 import 'package:course_shop/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class My_App_Vertical_ListView extends StatelessWidget {
   final Size contextSize;
@@ -12,9 +13,10 @@ class My_App_Vertical_ListView extends StatelessWidget {
   final List<Widget> row2Children1;
   final List<Widget>? row2Children2;
   final List<Widget>? row2Children3;
-  final List<Widget> row3Children1;
+  final List<Widget>? row3Children1;
   final Widget? row3Children2;
   final List<Widget>? row3Children3;
+  final List<double>? row3Children4;
   final double? hight;
   final double? itemsHight;
   final bool setDividerBetweenItems;
@@ -35,9 +37,10 @@ class My_App_Vertical_ListView extends StatelessWidget {
     required this.row2Children1,
     this.row2Children2,
     this.row2Children3,
-    required this.row3Children1,
+    this.row3Children1,
     this.row3Children2,
     this.row3Children3,
+    this.row3Children4,
     required this.hight,
     required this.itemsHight,
     required this.setDividerBetweenItems,
@@ -127,21 +130,50 @@ class My_App_Vertical_ListView extends StatelessWidget {
                                                       5, 0, 0, 0),
                                                   child: row2Children1[0],
                                                 ),
-                                                row2Children2![index],
+                                                row2Children2 != null
+                                                    ? row2Children2![index]
+                                                    : SizedBox(),
                                               ],
                                             ),
-                                            row2Children3![index],
+                                            row2Children3 != null
+                                                ? row2Children3![index]
+                                                : SizedBox(),
                                           ],
                                         ),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.all(7.0),
                                         child: Row(children: [
-                                          row3Children1[index],
-                                          SizedBox(width: 5,),
-                                          row3Children2!,
-                                          SizedBox(width: 5,),
-                                          row3Children3![index]
+                                          row3Children1 != null
+                                              ? row3Children1![index]
+                                              : SizedBox(),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          row3Children2 != null
+                                              ? row3Children2!
+                                              : SizedBox(),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          row3Children3 != null
+                                              ? row3Children3![0]
+                                              : SizedBox(),
+                                          row3Children4 != null
+                                              ? LinearPercentIndicator(animation: true,
+                                                  lineHeight: 15,
+                                                  width: 200,
+                                                  backgroundColor:
+                                                      CourseAppTheme
+                                                          .appSecondaryColor,
+                                                  progressColor: CourseAppTheme
+                                                      .appFifthColor,
+                                                  percent:
+                                                      row3Children4![index],
+                                                  barRadius: Radius.circular(5),
+                                                  isRTL: true,
+                                                )
+                                              : SizedBox()
                                         ]),
                                       ),
                                     ],
