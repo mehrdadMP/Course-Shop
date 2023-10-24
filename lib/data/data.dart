@@ -311,7 +311,7 @@ class AppData {
       ),
       Course(
         courseName: 'آموزش Excel 2021',
-        coursePrice: '۳۵۹۰۰۰',
+        coursePrice: '۳۵۹۰۰۰ تومان',
         teacherName: 'آزاده سهرابی نژاد',
         courseLength: '۹ ساعت و ۱۱ دقیقه',
         courseSessionNumber: '۴۳ جلسه',

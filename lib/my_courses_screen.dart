@@ -5,7 +5,7 @@ import 'package:course_shop/reusable_widgets/my_app_vertical_listview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:course_shop/theme.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:persian_number_utility/persian_number_utility.dart';
 
 class MyCoursesScreen extends StatelessWidget {
   const MyCoursesScreen({super.key});
@@ -58,6 +58,8 @@ class _SecondRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final getData = GetData(courses: myCourses, textStyle: textStyle);
+    
+    
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: My_App_Vertical_ListView(
@@ -117,7 +119,8 @@ class _FirstRow extends StatelessWidget {
               height: 5,
             ),
             Text(
-              MyAppTexts.myCoursesNumber + (courses.length).toString(),
+              MyAppTexts.myCoursesNumber +
+                  (courses.length).toString().toPersianDigit(),
               style: textStyle.bodySmall?.copyWith(
                   color: CourseAppTheme.appFifthColor,
                   fontWeight: FontWeight.w500,

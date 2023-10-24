@@ -6,12 +6,15 @@ import 'package:course_shop/reusable_widgets/my_app_vertical_listview.dart';
 import 'package:course_shop/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:course_shop/data/data.dart';
+import 'package:persian_number_utility/persian_number_utility.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<Course> cartList = AppData.cartList;
     final textStyle = Theme.of(context).textTheme;
     final contextSize = MediaQuery.sizeOf(context);
     const mainPadding = EdgeInsets.fromLTRB(25, 0, 25, 0);
@@ -28,11 +31,15 @@ class CartScreen extends StatelessWidget {
               children: [
                 _FirstRow(textStyle: textStyle),
                 MyAppDivider(mainPadding: EdgeInsets.fromLTRB(10, 7, 10, 7)),
-                _SecondRow(contextSize: contextSize, textStyle: textStyle),
+                _SecondRow(
+                    contextSize: contextSize,
+                    textStyle: textStyle,
+                    cartList: cartList),
                 _ThirdRow(
                     mainPadding: mainPadding,
                     contextSize: contextSize,
-                    textStyle: textStyle),
+                    textStyle: textStyle,
+                    cartList: cartList),
               ]),
         ),
       ),
@@ -42,11 +49,13 @@ class CartScreen extends StatelessWidget {
 
 class _ThirdRow extends StatelessWidget {
   final EdgeInsets mainPadding;
+  final List<Course> cartList;
   const _ThirdRow({
     super.key,
     required this.contextSize,
     required this.textStyle,
     required this.mainPadding,
+    required this.cartList,
   });
 
   final Size contextSize;
@@ -68,10 +77,10 @@ class _ThirdRow extends StatelessWidget {
             showCupertinoDialog(
               context: context,
               builder: (context) => MyAppShowDialog(
-                  textStyle: textStyle,
-                  mainPadding: mainPadding,
-                  dialogLabel: MyAppTexts.chooseBankPortal,
-                 ),
+                textStyle: textStyle,
+                mainPadding: mainPadding,
+                dialogLabel: MyAppTexts.chooseBankPortal,
+              ),
             );
           },
           child: Row(
@@ -86,12 +95,12 @@ class _ThirdRow extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      MyAppTexts.amountPrice[0],
+                      MyAppTexts.amountPrice,
                       style: textStyle.labelLarge
                           ?.copyWith(color: CourseAppTheme.appButtonsTextColor),
                     ),
                     Text(
-                      MyAppTexts.amountPrice[1],
+                      _costCalculation(cartList),
                       style: textStyle.labelLarge?.copyWith(
                           color: CourseAppTheme.appButtonsTextSecondaryColor,
                           fontWeight: FontWeight.w900),
@@ -103,13 +112,30 @@ class _ThirdRow extends StatelessWidget {
           )),
     );
   }
+
+  String _costCalculation(List<Course> cartList) {
+    final getData = GetData(courses: cartList, textStyle: textStyle);
+    List<Text> x = getData.coursesPrice;
+    int coursePrices = 0;
+    for (int i = 0; i < x.length; i++) {
+      String coursesPrice =
+          getData.coursesPrice[i].data!.replaceAll(' تومان', '').trim();
+
+      coursesPrice != 'رایگان'
+          ? coursePrices += int.parse(coursesPrice.toEnglishDigit())
+          : null;
+    }
+    return coursePrices.toString().toPersianDigit() + ' تومان';
+  }
 }
 
 class _SecondRow extends StatelessWidget {
+  final List<Course> cartList;
   const _SecondRow({
     super.key,
     required this.contextSize,
     required this.textStyle,
+    required this.cartList,
   });
 
   final Size contextSize;
@@ -117,6 +143,7 @@ class _SecondRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final getData = GetData(courses: cartList, textStyle: textStyle);
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
       child: My_App_Vertical_ListView(
@@ -127,50 +154,27 @@ class _SecondRow extends StatelessWidget {
         setDividerBetweenItems: true,
         setBorder: false,
         setLeftArrowButton: false,
-        itemImage: [],
-        row1Children: [
-          Text(
-            MyAppTexts.courseName,
-            style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-          ),
-        ],
+        itemImage: getData.coursesPhoto,
+        row1Children: getData.coursesNames,
         row2Children1: [
-          /* Row(
-            children: [
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child:
-                        Image.asset('assets/images/blank-profile-picture.png'),
-                  )),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
-                child: Text(
-                  MyAppTexts.teacherName,
-                  style: textStyle.bodySmall?.copyWith(fontSize: 11.5),
-                ),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(MyAppTexts.coursePrice,
-                    style: textStyle.bodySmall?.copyWith(
-                        color: CourseAppTheme.appFifthColor,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w800)),
-              ],
-            ),
-          ), */
-        ],row2Children2: [],row2Children3: [],
-        row3Children1: [
-         
-        ], itemCount: 15,
+          ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: SizedBox(
+                width: 20,
+                height: 20,
+                child: Image.asset('assets/images/blank-profile-picture.png'),
+              )),
+        ],
+        row2Children2: getData.coursesTeacherNames,
+        row2Children3: getData.coursesPrice,
+        row3Children1: getData.coursesLength,
+        row3Children2: Icon(
+          CupertinoIcons.circle_fill,
+          color: CourseAppTheme.appFifthColor,
+          size: 7,
+        ),
+        row3Children3: getData.coursesSessionNumber,
+        itemCount: cartList.length,
       ),
     );
   }
