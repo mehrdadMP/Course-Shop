@@ -45,4 +45,18 @@ class MyAppTexts {
   //my_app_show_dialog.dart file texts
   static String closeWindow = ('بستن');
   static String saveInfo = ('ثبت اطلاعات');
+
+  //my_app_settings_screen.dart file texts
+  static String notifications = ('اعلان‌ها');
+  static String mobileData = ('داده‌ها');
+  static String mobileDataDescriptionText =
+      ('در صورت پخش جریانی روی داده های تلفن همراه، این برنامه از داده‌ تلفن همراه شما استفاده می‌کند. ممکن است هزینه های اضافی اعمال شود.');
+  static String pictureQuality = ('کیفیت تصاویر');
+  static String pictureQualitySelected = ('HD');
+  static String language = ('زبان');
+  static String languageSelected = ('فارسی');
+  static String profileSettings = ('تنظیمات پروفایل');
+  static String advancedSettings = ('تنظیمات پیشرفته');
+  static String exit = ('خروج');
+  static String changeTheme = ('تغییر تم');
 }

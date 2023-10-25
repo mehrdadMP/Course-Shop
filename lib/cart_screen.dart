@@ -18,29 +18,34 @@ class CartScreen extends StatelessWidget {
     final textStyle = Theme.of(context).textTheme;
     final contextSize = MediaQuery.sizeOf(context);
     const mainPadding = EdgeInsets.fromLTRB(25, 0, 25, 0);
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.all(1),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
-              border: Border.all(width: 0.2)),
-          margin: EdgeInsets.fromLTRB(20, 20, 20, 35),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _FirstRow(textStyle: textStyle),
-                MyAppDivider(mainPadding: EdgeInsets.fromLTRB(10, 7, 10, 7)),
-                _SecondRow(
-                    contextSize: contextSize,
-                    textStyle: textStyle,
-                    cartList: cartList),
-                _ThirdRow(
-                    mainPadding: mainPadding,
-                    contextSize: contextSize,
-                    textStyle: textStyle,
-                    cartList: cartList),
-              ]),
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          color: CourseAppTheme.appBackGroundColor,
+          child: Container(
+            padding: const EdgeInsets.all(1),
+            decoration: BoxDecoration(
+                color: CourseAppTheme.appForthColor,
+                borderRadius: BorderRadius.circular(6),
+                border: Border.all(width: 0.2)),
+            margin: const EdgeInsets.fromLTRB(20, 20, 20, 35),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _FirstRow(textStyle: textStyle),
+                  const MyAppDivider(
+                      mainPadding: EdgeInsets.fromLTRB(10, 7, 10, 7)),
+                  _SecondRow(
+                      contextSize: contextSize,
+                      textStyle: textStyle,
+                      cartList: cartList),
+                  _ThirdRow(
+                      mainPadding: mainPadding,
+                      contextSize: contextSize,
+                      textStyle: textStyle,
+                      cartList: cartList),
+                ]),
+          ),
         ),
       ),
     );
@@ -125,7 +130,7 @@ class _ThirdRow extends StatelessWidget {
           ? coursePrices += int.parse(coursesPrice.toEnglishDigit())
           : null;
     }
-    return coursePrices.toString().toPersianDigit() + ' تومان';
+    return '${coursePrices.toString().toPersianDigit()} تومان';
   }
 }
 

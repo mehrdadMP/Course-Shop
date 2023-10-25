@@ -24,7 +24,7 @@ class MyCoursesScreen extends StatelessWidget {
             behavior:
                 ScrollConfiguration.of(context).copyWith(scrollbars: false),
             child: SingleChildScrollView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               child: Column(
                 children: [
                   _FirstRow(textStyle: textStyle, courses: myCourses),
@@ -115,7 +115,7 @@ class _FirstRow extends StatelessWidget {
               MyAppTexts.myCourses,
               style: textStyle.titleLarge,
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(

@@ -30,7 +30,7 @@ class FirstScreenNavBar extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       stateManagement: true,
       hideNavigationBarWhenKeyboardShows: true,
-      decoration: NavBarDecoration(
+      decoration: const NavBarDecoration(
         boxShadow: <BoxShadow>[BoxShadow(blurRadius: 10, spreadRadius: 0)],
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10), topRight: Radius.circular(10)),
@@ -38,11 +38,11 @@ class FirstScreenNavBar extends StatelessWidget {
       ),
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
-      itemAnimationProperties: ItemAnimationProperties(
+      itemAnimationProperties: const ItemAnimationProperties(
         duration: Duration(milliseconds: 200),
         curve: Curves.ease,
       ),
-      screenTransitionAnimation: ScreenTransitionAnimation(
+      screenTransitionAnimation: const ScreenTransitionAnimation(
         animateTabTransition: true,
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
@@ -53,49 +53,49 @@ class FirstScreenNavBar extends StatelessWidget {
 
   List<Widget> _buildScreens() {
     return [
-      MainScreen(),
-      MyCoursesScreen(),
-      AllCoursesScreen(),
-      ProfileSettingsScreen(),
-      CartScreen(),
-      SettingsScreen(),
+      const MainScreen(),
+      const MyCoursesScreen(),
+      const AllCoursesScreen(),
+      const ProfileSettingsScreen(),
+      const CartScreen(),
+      const SettingsScreen(),
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.home),
+        icon: const Icon(CupertinoIcons.home),
         title: MyAppTexts.home,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.book),
+        icon: const Icon(CupertinoIcons.book),
         title: MyAppTexts.myCourses,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.book_solid),
+        icon: const Icon(CupertinoIcons.book_solid),
         title: MyAppTexts.allCourses,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.person),
+        icon: const Icon(CupertinoIcons.person),
         title: MyAppTexts.profile,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.cart),
+        icon: const Icon(CupertinoIcons.cart),
         title:MyAppTexts.cart,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.settings),
+        icon: const Icon(CupertinoIcons.settings),
         title: MyAppTexts.cart,
         activeColorPrimary: CourseAppTheme.appPrimaryColor,
         inactiveColorPrimary: CourseAppTheme.appsixthColor,

@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale("fa", "IR"),
         Locale("en", "US"),
       ],
-      locale: Locale("fa", "IR"),
+      locale: const Locale("fa", "IR"),
       title: 'Flutter Demo',
       theme: CourseAppTheme.appTheme(),
-      home: FirstScreenNavBar(),
+      home: const FirstScreenNavBar(),
     );
   }
 }

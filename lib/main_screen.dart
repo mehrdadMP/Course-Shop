@@ -33,10 +33,10 @@ class MainScreen extends StatelessWidget {
         body: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           child: SingleChildScrollView(
-            physics: MyAppBouncingScrollPhysics(),
+            physics: const MyAppBouncingScrollPhysics(),
             child: Column(children: [
               _FirstRow(textStyle: textStyle, mainPadding: mainPadding),
-              MyAppDivider(mainPadding: mainPadding),
+              const MyAppDivider(mainPadding: mainPadding),
               _SecondRow(textStyle: textStyle, mainPadding: mainPadding),
               _ThirdRow(
                   coursesCategories: coursesCategories,
@@ -166,8 +166,8 @@ class _FourthRow extends StatelessWidget {
                 alignment: Alignment.center,
                 width: 300,
                 height: 300,
-                margin: EdgeInsets.fromLTRB(23, 50, 23, 50),
-                decoration: BoxDecoration(
+                margin: const EdgeInsets.fromLTRB(23, 50, 23, 50),
+                decoration: const BoxDecoration(
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 25,
@@ -183,10 +183,10 @@ class _FourthRow extends StatelessWidget {
                   borderRadius: BorderRadius.circular(17),
                   color: CourseAppTheme.appForthColor,
                 ),
-                margin: EdgeInsets.fromLTRB(3, 30, 3, 30),
-                padding: EdgeInsets.all(15),
+                margin: const EdgeInsets.fromLTRB(3, 30, 3, 30),
+                padding: const EdgeInsets.all(15),
                 child: SingleChildScrollView(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   child: Column(
                     children: [
                       ClipRRect(
@@ -309,7 +309,7 @@ class _ThirdRow extends StatelessWidget {
             child: SizedBox(
               height: 55,
               child: ListView.builder(
-                physics: MyAppBouncingScrollPhysics(),
+                physics: const MyAppBouncingScrollPhysics(),
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
@@ -319,8 +319,8 @@ class _ThirdRow extends StatelessWidget {
                       color: CourseAppTheme.appThirdColor,
                     ),
                     alignment: Alignment.center,
-                    padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
-                    margin: EdgeInsets.fromLTRB(8, 10, 0, 8),
+                    padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+                    margin: const EdgeInsets.fromLTRB(8, 10, 0, 8),
                     child: Text(
                       coursesCategories[index],
                       style: textStyle.labelLarge
@@ -464,7 +464,7 @@ class _FirstRow extends StatelessWidget {
                   color: Colors.white.withOpacity(0.8),
                   blurRadius: 50.0,
                   spreadRadius: 1.3,
-                  offset: Offset(
+                  offset: const Offset(
                     0.0,
                     0.0,
                   ),
